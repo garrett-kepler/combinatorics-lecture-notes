@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to counting techniques &#8212; Combinatorics Lecture Notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 3: Combinatorial Thinking Practicum" href="week3.html" />
+    <link rel="prev" title="Chapter 1: What is Combinatorics?" href="chapter1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Combinatorics Lecture Notes</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="chapter1.html">Chapter 1: What is Combinatorics?</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to counting techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week3.html">Chapter 3: Combinatorial Thinking Practicum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week4.html">Chapter 4: Combinatorial Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week5.html">Chapter 5</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="week6.html">Chapter 6: Recurrence Relations &amp; Generating Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week7-9.html">Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="week11-13.html">Chapter 8: Probability, Graphs, &amp; Ramsey Theory</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/content/chapter2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to counting techniques</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-set-theory">More Set Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-multiplication-principle">Addition &amp; Multiplication Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-dependence">(In)dependence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-counting-techniques">
+<h1>Introduction to counting techniques<a class="headerlink" href="#introduction-to-counting-techniques" title="Link to this heading">#</a></h1>
+<section id="warmup">
+<h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 3 </span></p>
+<section class="question-content" id="proof-content">
+<p>Physics 533 and Math 325 occur at the same time (12:10-1PM MWF). Phys
+533 has 5 people enrolled while Math 325 has 21.</p>
+<ol class="arabic simple">
+<li><p>How many people are in Math 325 or Physics 533 from 12:10-1 MWF?</p></li>
+<li><p>How many people are in Math 325 and Physics 533 from 12:10-1 MWF?</p></li>
+</ol>
+</section>
+</div><p>This may seem immediately obvious to some, but this highlights key
+counting principles used in combinatorics.</p>
+<blockquote>
+<div><p><strong>Answer:</strong></p>
+<ol class="arabic simple">
+<li><p>There are 21 people in Math 325. There are 5 in Phys 533. So, there
+are 21+5 in either during the class period.</p></li>
+<li><p>Nobody can be in two places at once, so there must be zero people in
+both classrooms during the class period.</p></li>
+</ol>
+</div></blockquote>
+<p>This is a nice set up. We know the set of students in 325 is completely
+separate from the set of students in 533. If we use set theoretic
+language, the set of students in 325 is <em>disjoint</em> from the set of
+students in 533. More on this later.<br />
+For now, consider yet another problem:</p>
+<div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 4 </span></p>
+<section class="question-content" id="proof-content">
+<p>How many ways are there to flip a coin then a six sided dice? More
+generally, rolling an <span class="math notranslate nohighlight">\(m\)</span> sided dice then an <span class="math notranslate nohighlight">\(n\)</span> sided dice?</p>
+</section>
+</div><p>You might note that my first roll <em>does not affect</em> my second roll. They
+are independent! Intuitively, if I roll heads, I have the opportunity to
+roll 1-6 on the dice. Likewise if roll tails. As such:</p>
+<blockquote>
+<div><p><strong>Answer:</strong>
+There are 2 options for my first roll. Since each roll is independent,
+there are 6 options for my second roll. So, there must be <span class="math notranslate nohighlight">\(2\cdot 6=12\)</span>
+ways to do this. More generally, since each roll is independent, there
+are <span class="math notranslate nohighlight">\(m\cdot n\)</span> ways to do this with an <span class="math notranslate nohighlight">\(m\)</span> sided dice and an <span class="math notranslate nohighlight">\(n\)</span> sided
+dice.</p>
+</div></blockquote>
+</section>
+<section id="more-set-theory">
+<h2>More Set Theory<a class="headerlink" href="#more-set-theory" title="Link to this heading">#</a></h2>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 6 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(B\)</span> be some set. Another set <span class="math notranslate nohighlight">\(A\)</span> is a <em>subset</em> of <span class="math notranslate nohighlight">\(B\)</span> if every
+element of <span class="math notranslate nohighlight">\(A\)</span> is an element of <span class="math notranslate nohighlight">\(B\)</span> (for every <span class="math notranslate nohighlight">\(a\in A\)</span>, <span class="math notranslate nohighlight">\(a\in B\)</span>). We
+denote this relationship by <span class="math notranslate nohighlight">\(A\subseteq B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> could equal <span class="math notranslate nohighlight">\(B\)</span>
+itself. If <span class="math notranslate nohighlight">\(A\)</span> cannot equal <span class="math notranslate nohighlight">\(B\)</span>, we write <span class="math notranslate nohighlight">\(A\subset B\)</span>.````</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 7 </span></p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(A\subseteq S\)</span>. The <em>complement</em> of <span class="math notranslate nohighlight">\(A\)</span> with respect to <span class="math notranslate nohighlight">\(S\)</span>,
+<span class="math notranslate nohighlight">\(A^C=S\setminus A\)</span>, is the set of elements in <span class="math notranslate nohighlight">\(S\)</span> that are not in <span class="math notranslate nohighlight">\(A\)</span>
+(<span class="math notranslate nohighlight">\(A^C=\{s\in S|s\notin A\}\)</span>). The complement of <span class="math notranslate nohighlight">\(S\)</span> with respect to
+itself, <span class="math notranslate nohighlight">\(S^C=S\setminus S\)</span>, is the set with zero elements,
+<span class="math notranslate nohighlight">\(\emptyset=\{\}\)</span>.</p>
+</section>
+</div></section>
+</div><p>We can think of the set complement <span class="math notranslate nohighlight">\(S\setminus A\)</span> as considering all the
+elements of <span class="math notranslate nohighlight">\(S\)</span> that are not in <span class="math notranslate nohighlight">\(A\)</span>. If there are no such elements (i.e.
+<span class="math notranslate nohighlight">\(A\nsubseteq S\)</span>), <span class="math notranslate nohighlight">\(S\setminus A\)</span> is <span class="math notranslate nohighlight">\(\emptyset\)</span>. For example, let <span class="math notranslate nohighlight">\(A=\{\)</span>integers between 28 and 352 divisible by 3<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(S=\{\)</span>integers between 28 and 352 inclusive<span class="math notranslate nohighlight">\(\}\)</span>. Then:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\subset S\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A^C=S\setminus A=\{\)</span>integers between 28 and 352 not divisible by 3}</p></li>
+</ul>
+<p>\hfill
+The choice of <span class="math notranslate nohighlight">\(S\)</span> is important. If <span class="math notranslate nohighlight">\(S=\mathbb{Z}\)</span> (the set of all
+integers), then <span class="math notranslate nohighlight">\(A^C\)</span> in the previous example would become the set of
+<em>all</em> integers excluding only integers between 28 and 352 that are
+divisible by 3.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A\subseteq S\)</span>. Is the function <span class="math notranslate nohighlight">\(f(A)=A^C\)</span> a bijection? If so, what
+is <span class="math notranslate nohighlight">\(f^{-1}\)</span>?</p>
+<p>\hfill
+<span class="math notranslate nohighlight">\(f\)</span> assigns subset <span class="math notranslate nohighlight">\(A\)</span> to its complement <span class="math notranslate nohighlight">\(A^C=S\setminus A\)</span>.</p>
+<ul class="simple">
+<li><p>Let us say <span class="math notranslate nohighlight">\(f(A)=A^C=B\)</span>.</p></li>
+<li><p>By the definition of a set’s complement, <span class="math notranslate nohighlight">\(B\)</span> contains every element
+of <span class="math notranslate nohighlight">\(S\)</span> that is not in <span class="math notranslate nohighlight">\(A\)</span>. Likewise, <span class="math notranslate nohighlight">\(A\)</span> contains every element of
+<span class="math notranslate nohighlight">\(S\)</span> that is not in <span class="math notranslate nohighlight">\(B\)</span>.</p></li>
+<li><p>In other words, <span class="math notranslate nohighlight">\(A^C=B\)</span> <em>and</em> <span class="math notranslate nohighlight">\(A=B^C\)</span>.</p></li>
+<li><p>So, <span class="math notranslate nohighlight">\(f^{-1}(B)=B^C\)</span>. Hence, <span class="math notranslate nohighlight">\(f^{-1}\)</span> exists and <span class="math notranslate nohighlight">\(f\)</span> is a bijection!</p></li>
+</ul>
+<p>\vspace{.5em}
+This is a nice property. Consider the problem of enumerating <span class="math notranslate nohighlight">\(k\)</span>-element
+subsets of <span class="math notranslate nohighlight">\(S=\{1,2,3,4,\dots, n\}\)</span> (<span class="math notranslate nohighlight">\(k&lt;n\)</span>).</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A\)</span> be the set of all <span class="math notranslate nohighlight">\(k\)</span>-elements subsets <span class="math notranslate nohighlight">\(A_i\subset S\)</span>.
+Moreover, let <span class="math notranslate nohighlight">\(B\)</span> be the set of all the complements of elements in
+<span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+<li><p>Then for each <span class="math notranslate nohighlight">\(A_i\)</span>, there is some set <span class="math notranslate nohighlight">\(B_i\)</span> such that
+<span class="math notranslate nohighlight">\(f(A_i)=A_i^C=B_i\subset S\)</span> of size <span class="math notranslate nohighlight">\(n-k\)</span>.</p></li>
+<li><p>Since <span class="math notranslate nohighlight">\(f(A_i)=A_i^C\)</span> is a bijection, the set of all <span class="math notranslate nohighlight">\(k\)</span>-element
+subsets, <span class="math notranslate nohighlight">\(A\)</span>, is the same size as the set of all (<span class="math notranslate nohighlight">\(n-k\)</span>)-element
+subsets, <span class="math notranslate nohighlight">\(B\)</span>. That is, <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+</ul>
+<p>We will talk about what the actual sizes <span class="math notranslate nohighlight">\(|A|\)</span> and <span class="math notranslate nohighlight">\(|B|\)</span> later.</p>
+<p>\hfill
+The <em>union</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, denoted <span class="math notranslate nohighlight">\(A\cup B\)</span>, is the set of
+all elements in <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span> (<span class="math notranslate nohighlight">\(A\cup B=\{x|x\in A\)</span> or <span class="math notranslate nohighlight">\(x\in B\)</span>}).</p>
+<p>\hfill
+The <em>intersection</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, denoted <span class="math notranslate nohighlight">\(A\cap B\)</span>, is the
+set of all elements in <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> (<span class="math notranslate nohighlight">\(A\cap B=\{x|x\in A\)</span> and <span class="math notranslate nohighlight">\(x\in B\)</span>}).</p>
+<p>\hfill
+If the intersection between sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is empty, denoted
+<span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>, we say <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>disjoint</em>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A=\{\)</span>the set of students in Math 325<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(B=\{\)</span>the set of
+students in Physics 533<span class="math notranslate nohighlight">\(\}\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\cup B=\{\)</span>the set of students in either couse<span class="math notranslate nohighlight">\(\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span> since now student is in both classes</p></li>
+</ul>
+</section>
+<section id="addition-multiplication-principle">
+<h2>Addition &amp; Multiplication Principle<a class="headerlink" href="#addition-multiplication-principle" title="Link to this heading">#</a></h2>
+<p>Thinking back to the initial problem of this section
+(<a class="reference internal" href="#question2"><span class="xref myst">[question2]</span></a>{reference-type=”ref”
+reference=”question2”}), we could simply add the number of people in 325
+and 533 to get the total number <em>since no student is in both classes</em>.
+This principle of complete separation allowing simple addition can be
+formalized:</p>
+<p>\hfill
+If <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>, <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>.<br />
+More generally, if <span class="math notranslate nohighlight">\(A_i\cap A_j=\emptyset\)</span> for all <span class="math notranslate nohighlight">\(i\neq j\)</span> and
+<span class="math notranslate nohighlight">\(1\leq i,j\leq n\)</span>, then
+<span class="math notranslate nohighlight">\(|A_1\cup A_2\cup \cdots \cup A_n|=|A_1|+|A_2|+\cdots +|A_n|\)</span>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(A\times B\)</span> be the set of ordered pairs <span class="math notranslate nohighlight">\((a,b)\)</span> where <span class="math notranslate nohighlight">\(a\in A\)</span> and
+<span class="math notranslate nohighlight">\(b\in B\)</span>.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(S=A\times B\)</span>. Then, <span class="math notranslate nohighlight">\(|S|=|A\times B|=|A|\cdot|B|\)</span>.<br />
+More generally, let <span class="math notranslate nohighlight">\(S=A_1\times A_2\times \cdots \times A_n\)</span>. Then,
+<span class="math notranslate nohighlight">\(|S|=|A_1\times A_2\times \cdots \times A_n|=|A_1||A_2|\cdots|A_n|\)</span></p>
+<p>\hfill
+From warmup problem 2, let <span class="math notranslate nohighlight">\(A=\{H,T\}\)</span> be the results from flipping a
+coin and <span class="math notranslate nohighlight">\(B=\{1,2,3,4,5,6\}\)</span> be the results from rolling the six-sided
+dice. Then,</p>
+<p><span class="math notranslate nohighlight">\(A\times B=\{(H,1),(H,2),(H,3),\dots,(T,5),(T,6)\}\)</span></p>
+<p>and <span class="math notranslate nohighlight">\(|S|=|A\times B|=|A||B|=2\cdot 6=12\)</span>.</p>
+<section id="in-dependence">
+<h3>(In)dependence<a class="headerlink" href="#in-dependence" title="Link to this heading">#</a></h3>
+<p>Note that the <em>independence</em> of warmup problem 2 is important. Flipping
+a coin <em>has no impact</em> on the rolling of the dice. Consider a different
+problem:</p>
+<p>\hfill
+There are four orbs labelled <span class="math notranslate nohighlight">\(A,B,C,D\)</span> in an urn. You will draw from the
+urn four times. For each draw, you take a single orb out, write down its
+label, and replace it in the urn. How many possible label sequences
+could you write down?</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(A_1, A_2, A_3,\)</span> and <span class="math notranslate nohighlight">\(A_4\)</span> be the sets of possible draws on draw
+1, 2, 3, and 4 respectively and <span class="math notranslate nohighlight">\(S\)</span> be the set of possible label
+sequences you could write down.</p></li>
+<li><p>Since all four balls in the urn before you draw first,
+<span class="math notranslate nohighlight">\(A_1=\{A,B,C,D\}\)</span>.</p></li>
+<li><p>Moreover, since you placed the orb you drew back into the urn, you
+have a chance to draw any of the four orbs again: <span class="math notranslate nohighlight">\(A_2=\{A,B,C,D\}\)</span>.</p></li>
+<li><p>Likewise with <span class="math notranslate nohighlight">\(A_3\)</span> and <span class="math notranslate nohighlight">\(A_4\)</span>.</p></li>
+<li><p>Thus, the total possible label sequences there are is:
+<span class="math notranslate nohighlight">\(|S|=|A_1\times A_2\times A_3\times A_4|=|A_1||A_2||A_3||A_4|=4^4=256\)</span>.</p></li>
+</ul>
+<p>Consider a small change to your process:</p>
+<p>\hfill
+You really like writing down labels, so you continue with your setup
+from the previous problem. However, this time instead of replacing the
+orb after drawing it, you set it to the side. You then draw another orb
+and set it next to the previously drawn orb. You repeat this process
+until there are no orbs left. Then, you write down the sequence of
+labels you see. How many possible label sequences could you see?</p>
+<p>\hfill</p>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(B_1, B_2, B_3,\)</span> and <span class="math notranslate nohighlight">\(B_4\)</span> be the sets of possible draws on draw
+1, 2, 3, and 4 respectively and <span class="math notranslate nohighlight">\(T\)</span> be the set of possible label
+sequences you could write down.</p></li>
+<li><p>Since all four balls in the urn before you draw first, <span class="math notranslate nohighlight">\(|B_1|=4\)</span>.</p></li>
+<li><p>Whatever you drew, it stays outside of the urn. Since there are 3
+orbs left, you have 3 options for your next draw: <span class="math notranslate nohighlight">\(|B_2|=3\)</span>.</p></li>
+<li><p>Continuing on, you have taken yet another option for your third draw
+away: <span class="math notranslate nohighlight">\(|B_3|=2\)</span>.</p></li>
+<li><p>Lastly, since you drew one of the two remaining orbs, that leaves
+one left for your final draw <span class="math notranslate nohighlight">\(|B_4|=1\)</span>.</p></li>
+<li><p>Thus,
+<span class="math notranslate nohighlight">\(|T|=|B_1\times B_2\times B_3\times B_4|=|B_1||B_2||B_3||B_4|=4\cdot 3\cdot 2\cdot 1=24\)</span>.</p></li>
+</ul>
+<p>So, replacing the orbs every time gave us a count of 256 while leaving
+them out every time gave us a count of 24. What happened? One way to
+think of this is that by replacing the orbs, you have allowed for
+<em>repetitions</em> to exist in your set <span class="math notranslate nohighlight">\(S\)</span> (e.g. by drawing <span class="math notranslate nohighlight">\(A\)</span> then <span class="math notranslate nohighlight">\(A\)</span>
+then <span class="math notranslate nohighlight">\(C\)</span> then <span class="math notranslate nohighlight">\(A\)</span>). Contrarily, by leaving the orbs out after drawing,
+you remove the ability to have repeats. As such, you remove every
+element in <span class="math notranslate nohighlight">\(S\)</span> that has any repeat labels to obtain a new set <span class="math notranslate nohighlight">\(T\)</span>, the
+set of label sequences with <em>distinct</em> labels.</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> be defined as in the above problem. What is
+<span class="math notranslate nohighlight">\(T^C=S\setminus T\)</span>? How big is <span class="math notranslate nohighlight">\(T^C\)</span> in this case?</p>
+<p>\hfill
+Let <span class="math notranslate nohighlight">\(S\)</span> be defined as in the above problem. How many label sequences
+have only 2 repeats? i.e. sequences like <span class="math notranslate nohighlight">\((A,A,B,C)\)</span> or <span class="math notranslate nohighlight">\((D,A,C,D)\)</span>.</p>
+<p>\hfill
+Consider drawing <span class="math notranslate nohighlight">\(n\)</span> labelled orbs from an urn with replacement. How
+many ways can you do this? Without replacement?</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>What we’ve covered here:</p>
+<ul class="simple">
+<li><p>A function <span class="math notranslate nohighlight">\(f:A\to B\)</span> having an inverse function <span class="math notranslate nohighlight">\(f^{-1}:B\to A\)</span>
+means <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
+<li><p>Set complements, unions, and intersections.</p></li>
+<li><p>Addition principle: the size of a union of disjoint sets is the sum
+of their sizes.</p></li>
+<li><p>Multiplication principle: the size of a product of two sets is the
+product of their sizes.</p></li>
+<li><p>The difference between counting with dependence versus without.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 1: What is Combinatorics?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="week3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 3: Combinatorial Thinking Practicum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmup">Warmup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-set-theory">More Set Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#addition-multiplication-principle">Addition &amp; Multiplication Principle</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#in-dependence">(In)dependence</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Garrett Kepler
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
