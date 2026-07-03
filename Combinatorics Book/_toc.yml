@@ -1,0 +1,12 @@
+format: jb-book
+root: intro
+
+chapters:
+  - file: content/week1
+  - file: content/week2
+  - file: content/week3
+  - file: content/week4
+  - file: content/week5
+  - file: content/week6
+  - file: content/week7-9
+  - file: content/week11-13

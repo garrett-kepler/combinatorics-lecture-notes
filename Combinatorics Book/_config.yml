@@ -1,0 +1,12 @@
+title: Combinatorics
+author: Garrett Kepler
+
+execute:
+  execute_notebooks: force
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+
+
+html:
+  baseurl: /tree/master/_pages/pages/teaching/classes/html
