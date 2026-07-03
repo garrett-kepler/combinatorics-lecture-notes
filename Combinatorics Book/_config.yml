@@ -6,7 +6,3 @@ execute:
 sphinx:
   extra_extensions:
     - sphinx_proof
-
-
-html:
-  baseurl: /tree/master/_pages/pages/teaching/classes/html
