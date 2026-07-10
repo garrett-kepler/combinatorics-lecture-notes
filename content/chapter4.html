@@ -36,7 +36,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -144,8 +143,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -340,18 +345,7 @@
 <h1>Chapter 4: “Counting”<a class="headerlink" href="#chapter-4-counting" title="Link to this heading">#</a></h1>
 <section id="warmups">
 <h2>Warmups<a class="headerlink" href="#warmups" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 9 </span></p>
-<section class="question-content" id="proof-content">
-<ol class="arabic simple">
-<li><p>How many total subsets of <span class="math notranslate nohighlight">\(S=\{1,2,3,\dots, 50\}\)</span> are there?</p></li>
-<li><p>Calculate <span class="math notranslate nohighlight">\(1+2+3+\cdots+49+50\)</span>. Could you form a general formula for
-<span class="math notranslate nohighlight">\(1+2+3+4+\cdots+n\)</span>?</p></li>
-<li><p>Determine the number of subsets of <span class="math notranslate nohighlight">\(S=\{1,2,3,\dots,50\}\)</span> whose sum of
-elements is larger than or equal to 638.</p></li>
-</ol>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Answer:</strong></p>
 <ol class="arabic simple">
 <li><p>Consider a subset <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> of <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
@@ -400,75 +394,18 @@ There are multiple ways to solve a problem. The benefit of this is that we may l
 <li><p>Finding a formula in this equivalent problem tells us the count of the original problem
 But, what if we found formulas for both problems? These are equivalent problems, so they should have equivalent formulas! This is what is referred to as “double counting” or “counting with equivalence” or “counting in two ways”. The backbone of double counting can be summarized as follows:</p></li>
 </ul>
-<div class="proof theorem admonition" id="theorem-1">
-<p class="admonition-title"><span class="caption-number">Theorem 5 </span> (Double Counting)</p>
-<section class="theorem-content" id="proof-content">
-<p>If <span class="math notranslate nohighlight">\(f(n)\)</span> and <span class="math notranslate nohighlight">\(g(n)\)</span> are functions that count the solutions to a problem
-involving <span class="math notranslate nohighlight">\(n\)</span> objects, then <span class="math notranslate nohighlight">\(f(n)=g(n)\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>.</p>
-</section>
-</div><p>That is, if there are two equivalent ways to count something, they must be equivalent all the time!</p>
-<div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 10 </span></p>
-<section class="definition-content" id="proof-content">
-<p>A <em>combinatorial proof</em> works as follows:</p>
-<ul class="simple">
-<li><p><strong>Problem</strong>: We must count the number of solutions to a problem on <span class="math notranslate nohighlight">\(n\)</span> objects.</p></li>
-<li><p><strong>LHS</strong>: Count one way and find a function <span class="math notranslate nohighlight">\(f(n)\)</span> counts these solutions.</p></li>
-<li><p><strong>RHS</strong>: Count another way and find a function <span class="math notranslate nohighlight">\(g(n)\)</span> counts these
-solutions.</p></li>
-<li><p><strong>Conclusion</strong>: Then, <span class="math notranslate nohighlight">\(f(n)=g(n)\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>.
-The result, <span class="math notranslate nohighlight">\(f(n)=g(n)\)</span>, is what we call a <em>combinatorial identity</em>.</p></li>
-</ul>
-</section>
-</div><p>This first step is crucial. Sometimes we are given the problem we are going to solve (e.g. “How many ways are there to permute <span class="math notranslate nohighlight">\(n\)</span> objects?”). Then, we find two equivalent formulas. Other times, we are given an identity to prove and we must identify a problem to count (e.g. “Prove <span class="math notranslate nohighlight">\(\binom{n}{k}=\binom{n}{n-k}\)</span>”). Then, we must show that both the left hand side and right hand side count the solutions to the problem we have identified.</p>
+<p>That is, if there are two equivalent ways to count something, they must be equivalent all the time!</p>
+<p>This first step is crucial. Sometimes we are given the problem we are going to solve (e.g. “How many ways are there to permute <span class="math notranslate nohighlight">\(n\)</span> objects?”). Then, we find two equivalent formulas. Other times, we are given an identity to prove and we must identify a problem to count (e.g. “Prove <span class="math notranslate nohighlight">\(\binom{n}{k}=\binom{n}{n-k}\)</span>”). Then, we must show that both the left hand side and right hand side count the solutions to the problem we have identified.</p>
 <p>The number of ways to select a subset of <span class="math notranslate nohighlight">\(k\)</span> objects from a set <span class="math notranslate nohighlight">\(n\)</span> distinct objects, <span class="math notranslate nohighlight">\(C(n,k)\)</span>, is denoted: <span class="math notranslate nohighlight">\(\begin{align}C(n,k)&amp;=_nC_k=\binom{n}{k} \end{align}\)</span> The right hand side is what we call a <em>binomial coefficient</em>. We read this as “<span class="math notranslate nohighlight">\(n\)</span> choose <span class="math notranslate nohighlight">\(k\)</span>”.</p>
-<div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Arrangement &amp; Permutation)</p>
-<section class="definition-content" id="proof-content">
-<p>An <em>arrangement</em> is a selection. Each resulting ordered arrangement is
-called a <em>permutation</em>.</p>
-</section>
-</div><p>The number of ways to arrange <span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span> distinct
+<p>The number of ways to arrange <span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span> distinct
 objects, <span class="math notranslate nohighlight">\(P(n,k)\)</span>, is denoted: <span class="math notranslate nohighlight">\(\begin{align} P(n,k)&amp;=_nP_k=(n)_k \end{align}\)</span></p>
-<div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">Example 4 </span> (Combination vs. Permutation)</p>
-<section class="example-content" id="proof-content">
-<ol class="arabic simple">
-<li><p>How many ways are there to make a sundae with 3 toppings from an ice
-cream shop with 10 toppings? (Topping order doesn’t matter, so this is a combination problem!)</p></li>
-<li><p>How many ways are there to schedule the performances of 4 finalists on the reality show for singers? (Singing schedule does matter, so this is a permutation problem!)</p></li>
-</ol>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Answer:</strong></p>
 <ol class="arabic simple">
 <li><p>We are <em>selecting</em> 3 objects from 10 objects, so there are <span class="math notranslate nohighlight">\(C(10,3)\)</span> ways.</p></li>
 <li><p>To recall a previous example “How many ways can we draw 4 labelled orbs (A,B,C,D) from an urn without replacement?” Using the multiplication principle, we found there was 4 options for the first draw, 3 for the second, and so on giving a count of <span class="math notranslate nohighlight">\(4\cdot 3\cdot 2\cdot 1=4!=12\)</span>. Equivalently, there are <span class="math notranslate nohighlight">\(P(4,4)\)</span> ways.</p></li>
 </ol>
 </div></blockquote>
-<div class="proof question admonition" id="question-5">
-<p class="admonition-title"><span class="caption-number">Question 10 </span></p>
-<section class="question-content" id="proof-content">
-<p>How many ways are there to arrange <span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span>
-distinct objects?</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. - <strong>Identify Problem</strong>: How many ways are there to arrange <span class="math notranslate nohighlight">\(k\)</span> objects
-from a set of <span class="math notranslate nohighlight">\(n\)</span> distinct objects?</p>
-<ul class="simple">
-<li><p><strong>LHS</strong>: We know by definition <span class="math notranslate nohighlight">\(P(n,k)\)</span> counts this.</p></li>
-<li><p><strong>RHS</strong>: We can think of assigning <span class="math notranslate nohighlight">\(n\)</span> objects to <span class="math notranslate nohighlight">\(k\)</span> boxes. For box
-1, there are <span class="math notranslate nohighlight">\(n\)</span> possible objects that can be assigned to it. For
-box 2, there are <span class="math notranslate nohighlight">\(n-1\)</span> possible objects. Continuing on to the <span class="math notranslate nohighlight">\(k\)</span>th
-box, all <span class="math notranslate nohighlight">\(k-1\)</span> boxes before it have an object, so there are
-<span class="math notranslate nohighlight">\(n-(k-1)\)</span> possible objects that can be assigned box <span class="math notranslate nohighlight">\(k\)</span>. Using the
-multiplication principle, there are
-<span class="math notranslate nohighlight">\(n\cdot(n-1)\cdot (n-2)\cdot (n-(k-1))\)</span> ways to do this.</p></li>
-<li><p><strong>Conclusion</strong>: Thus, there are
-<span class="math notranslate nohighlight">\(P(n,k)=n\cdot (n-1)\cdot (n-2)\cdot (n-(k-1))\)</span> ways to arrange <span class="math notranslate nohighlight">\(k\)</span>
-objects from a set of <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
-</ul>
-</div>
 <p>The proof above allows us to immediately say the following as well:</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -480,82 +417,11 @@ P(n,k)=n\cdot (n-1)\cdot (n-2)\cdot (n-(k-1))=\frac{n!}{(n-k)!}
 <p>We are arranging 4 objects from a set of 4. There are <span class="math notranslate nohighlight">\(P(4,4)\)</span> ways to do this. So, there are <span class="math notranslate nohighlight">\(P(4,4)=\frac{4!}{(4-4)!}=4!\)</span> ways to do this.</p>
 <p>We also asked the following: “You draw the orbs from the urn with replacement, you write down 4 labels. How many ways are there to do this so their is only a pair of repeats?” (e.g. (A,B,C,A) is okay but not (D,D,C,D)).</p>
 <p>Consider a set of four slots <span class="math notranslate nohighlight">\(S\)</span> in which you will write the labels. We select one of the labels to repeat, there are 4 ways to do this. We select 2 slots from the 4 slots for this label, there are <span class="math notranslate nohighlight">\(C(4,2)=\binom{4}{2}\)</span> ways to do this. After this label has been placed, there are 3 labels to be arranged in 2 slots, there are <span class="math notranslate nohighlight">\(P(3,2)=\frac{3!}{(3-2)!}=3!\)</span> to do this. This means there are <span class="math notranslate nohighlight">\(4\cdot C(4,2)\cdot P(3,2)=4\cdot\binom{4}{2}\cdot 3!\)</span> ways in total to get exactly one pair in this case. This is a totally valid response to a combinatorics question. For an concise answer, we can simplify to obtain 144 ways.</p>
-<div class="proof question admonition" id="question-6">
-<p class="admonition-title"><span class="caption-number">Question 11 </span> (To Ponder)</p>
-<section class="question-content" id="proof-content">
-<ul class="simple">
-<li><p>How many ways are there to draw <span class="math notranslate nohighlight">\(n\)</span> labeled orbs from an urn with replacement?</p></li>
-<li><p>How many ways are there to draw <span class="math notranslate nohighlight">\(n\)</span> labeled orbs from an urn with replacement only <span class="math notranslate nohighlight">\(m\)</span> times when <span class="math notranslate nohighlight">\(m&lt;n\)</span>? What about <span class="math notranslate nohighlight">\(m&gt;n\)</span>?</p></li>
-<li><p>Consider drawing <span class="math notranslate nohighlight">\(n\)</span> labelled orbs from an urn with replacement. How many ways can you do this? Without replacement?</p></li>
-</ul>
-</section>
-</div><p>Now that we have some practice with combinations and permutations, let’s get some practice with combinatorial proofs and show how they are different from non-combinatorial proofs.</p>
-<div class="proof question admonition" id="question-7">
-<p class="admonition-title"><span class="caption-number">Question 12 </span></p>
-<section class="question-content" id="proof-content">
-<p>Use a combinatorial proof to show that <span class="math notranslate nohighlight">\(P(n,k)=P(k,k)C(n,k)\)</span>.</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. A Combinatorial Proof</p>
-<ul class="simple">
-<li><p><strong>Identify Problem</strong>: How many ways are there to arrange <span class="math notranslate nohighlight">\(k\)</span> objects
-from a set of <span class="math notranslate nohighlight">\(n\)</span> objects?</p></li>
-<li><p><strong>LHS</strong>: By definition, <span class="math notranslate nohighlight">\(P(n,k)\)</span> counts this.</p></li>
-<li><p><strong>RHS</strong>: <span class="math notranslate nohighlight">\(C(n,k)\)</span> counts the number of ways to select a subset of
-<span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span>. This ignores the order of the
-objects. For each <span class="math notranslate nohighlight">\(k\)</span>-element selection, there are <span class="math notranslate nohighlight">\(P(k,k)\)</span> ways to
-arrange the elements. Thus, by the multiplication principle, there
-are <span class="math notranslate nohighlight">\(C(n,k)P(k,k)\)</span> ways to arrange <span class="math notranslate nohighlight">\(k\)</span> elements from a set of <span class="math notranslate nohighlight">\(n\)</span>
-objects.</p></li>
-<li><p><strong>Conclusion</strong>: Therefore, <span class="math notranslate nohighlight">\(P(n,k)=P(k,k)C(n,k)\)</span>.</p></li>
-</ul>
-</div>
+<p>Now that we have some practice with combinations and permutations, let’s get some practice with combinatorial proofs and show how they are different from non-combinatorial proofs.</p>
 <p>From the proof above, we can immediately algebraically deduce:</p>
-<div class="proof theorem admonition" id="theorem-8">
-<p class="admonition-title"><span class="caption-number">Theorem 6 </span></p>
-<section class="theorem-content" id="proof-content">
-<div class="math notranslate nohighlight">
-\[\begin{align}
-C(n,k)=\binom{n}{k}=\frac{n!}{k!(n-k)!}
-\end{align}\]</div>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. A Non-Combinatorial Proof</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align}
-P(n,k)=P(k,k)C(n,k)&amp;\implies \frac{n!}{(n-k)!}=\frac{k!}{(k-k)!}C(n,k)\\
-&amp;\implies C(n,k)=\frac{n!}{k!(n-k)!}=\binom{n}{k}
-\end{align}\end{split}\]</div>
-</div>
 <p>What we’ve done here is simply use algebra and pre-established relationships to reach our result. We have counted nothing. This is an example of a <em>non-combinatorial proof</em>.</p>
 <p>Using the above theorem, here is another good example of a non-combinatorial proof:</p>
-<div class="proof theorem admonition" id="theorem-9">
-<p class="admonition-title"><span class="caption-number">Theorem 7 </span></p>
-<section class="theorem-content" id="proof-content">
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-\binom{n}{k}=\binom{n}{n-k}\end{aligned}\]</div>
-<p>(That is, the number of ways to select <span class="math notranslate nohighlight">\(k\)</span> objects from <span class="math notranslate nohighlight">\(n\)</span> is equal to the number of ways to select <span class="math notranslate nohighlight">\(n-k\)</span> objects from <span class="math notranslate nohighlight">\(n\)</span>.)</p>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. A Non-Combinatorial Proof</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
-\binom{n}{k}=\frac{n!}{k!(n-k)!}=\frac{n!}{(n-(n-k))!(n-k)!}=\binom{n}{n-k}
-\end{align}\]</div>
-</div>
 <p>How could we change this into a combinatorial proof?</p>
-<div class="proof admonition" id="proof">
-<p>Proof. A Combinatorial Proof</p>
-<ul class="simple">
-<li><p><strong>Identify Problem</strong>: How many ways are there to select <span class="math notranslate nohighlight">\(k\)</span> objects
-from a set of <span class="math notranslate nohighlight">\(n\)</span>?</p></li>
-<li><p><strong>LHS</strong>: By definition, <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> counts the number of ways to
-select <span class="math notranslate nohighlight">\(k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span> objects.</p></li>
-<li><p><strong>RHS</strong>: By definition, <span class="math notranslate nohighlight">\(\binom{n}{n-k}\)</span> counts the number of ways to select <span class="math notranslate nohighlight">\(n-k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span>. By including <span class="math notranslate nohighlight">\(n-k\)</span> objects in a set, we are creating a set of <span class="math notranslate nohighlight">\(k\)</span> excluded objects. If instead, we select the <span class="math notranslate nohighlight">\(n-k\)</span> objects from a set of <span class="math notranslate nohighlight">\(n\)</span> to exclude, we are including the other <span class="math notranslate nohighlight">\(k\)</span> objects. Thus, <span class="math notranslate nohighlight">\(\binom{n}{n-k}\)</span> counts the number of ways to select <span class="math notranslate nohighlight">\(k\)</span> from a set of <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
-<li><p><strong>Conclusion</strong>: Therefore, <span class="math notranslate nohighlight">\(\binom{n}{k}=\binom{n}{n-k}\)</span>.</p></li>
-</ul>
-</div>
 <p>Double counting gives us many ways to count the same thing! A few great examples:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}

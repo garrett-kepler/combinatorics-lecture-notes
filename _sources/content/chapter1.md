@@ -36,6 +36,7 @@ sort.
 3. How many people must attend the first day of lecture in Math 325 to guarantee 3 people either have all met before or have all not met before?
 ````
 
+
 These preliminary warmup problems are classic combinatorial questions.
 The first, a question of enumeration, we may have a straightforward way
 to answer already:

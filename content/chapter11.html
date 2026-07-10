@@ -36,7 +36,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -143,8 +142,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -339,95 +344,18 @@
 <section id="probability-basics">
 <h2>Probability Basics<a class="headerlink" href="#probability-basics" title="Link to this heading">#</a></h2>
 <p>You probably (pun-intended) have an idea of what probability is. We experience this most every day of our lives. Thoughts like “I figure the bus will be late today” or “I think I will pass this class” are both simple examples of probabilistic thinking. <em>We are assigning an event some chance of occurring</em>. We will now formalize this idea mathematically.</p>
-<div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Sample Space &amp; Probability)</p>
-<section class="definition-content" id="proof-content">
-<p>A <em>sample space</em> <span class="math notranslate nohighlight">\(\Omega=\{\omega_1,\omega_2,\dots, \omega_n\}\)</span> is a set of events (outcomes, occurences, etc.). A <em>probability</em> <span class="math notranslate nohighlight">\(\mathbb{P}:\Omega\to [0,1]\)</span> is a function assigning elements of <span class="math notranslate nohighlight">\(\Omega\)</span> a number such that the following hold</p>
-<ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbb{P}[\omega_i]\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=1\)</span></p></li>
-</ol>
-</section>
-</div><p>Intuitively, a sample space is simply a set and a probability is just function with special restrictions. Even more intuitively, a sample space is a set of events and a probability is a likelihood those events occur.<br />
+<p>Intuitively, a sample space is simply a set and a probability is just function with special restrictions. Even more intuitively, a sample space is a set of events and a probability is a likelihood those events occur.<br />
 Enough formalism, examples below.</p>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 8 </span></p>
-<section class="example-content" id="proof-content">
-<ul class="simple">
-<li><p>Let <span class="math notranslate nohighlight">\(\Omega=\{\)</span>heads, tails<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(\mathbb{P}[\)</span>heads<span class="math notranslate nohighlight">\(]=\mathbb{P}[\)</span>tails<span class="math notranslate nohighlight">\(]=\frac{1}{2}\)</span>. Then, we have the famed “fair coin toss”. If you have not flipped a coin yet, please do. Note that <span class="math notranslate nohighlight">\(\mathbb{P}[\omega_i]=\frac{1}{2}\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>. Also, <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=\mathbb{P}[\text{heads}]+\mathbb{P}[\text{tails}]=\frac{1}{2}+\frac{1}{2}=1\)</span>. So, the <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span> we have chosen is indeed a <em>probability</em>.</p></li>
-<li><p>Let <span class="math notranslate nohighlight">\(\Omega=\{1,2,3,4,5,6\}\)</span> and <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{6}\)</span> for all <span class="math notranslate nohighlight">\(i\in \Omega\)</span>. Then, we have the “dice roll”. Note that <span class="math notranslate nohighlight">\(\mathbb{P}[\omega_i]=\frac{1}{6}\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>. Also, <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=\mathbb{P}[1]+\mathbb{P}[2]+\mathbb{P}[3]+\mathbb{P}[4]+\mathbb{P}[5]+\mathbb{P}[6]=\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}+\frac{1}{6}=1\)</span>. So, the <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span> we have chosen is again a <em>probability</em>.</p></li>
-</ul>
-</section>
-</div><p>A lot of the rules of combinatorics have probabilistic counterparts. For example, the addition rule says that if sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are disjoint <span class="math notranslate nohighlight">\((|A\cap B|=0)\)</span>, then <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>. Likewise, the following holds:</p>
-<div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 16 </span> (Addition Rule)</p>
-<section class="theorem-content" id="proof-content">
-<ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>mutually exclusive</em> events (they cannot occur at the same time), then <span class="math notranslate nohighlight">\(\mathbb{P}[A\cup B]=\mathbb{P}[A]+\mathbb{P}[B]\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(A_1,A_2,\dots,A_n\)</span> are all mutually exclusive, then <span class="math notranslate nohighlight">\(\mathbb{P}\left[\bigcup\limits_{i=1}^nA_i\right]=\sum\limits_{i=1}^n\mathbb{P}[A_i]\)</span>.</p></li>
-</ul>
-</section>
-</div><p>Likewise, there is a product rule for probability:</p>
-<div class="proof theorem admonition" id="theorem-3">
-<p class="admonition-title"><span class="caption-number">Theorem 17 </span> (Multiplication Rule)</p>
-<section class="theorem-content" id="proof-content">
-<ul class="simple">
-<li><p>If <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>independent</em> events (<span class="math notranslate nohighlight">\(A\)</span> has no impact on <span class="math notranslate nohighlight">\(B\)</span>), then <span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]=\mathbb{P}[A]\mathbb{P}[B]\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(A_1,A_2,\dots,A_n\)</span> are all independent, then <span class="math notranslate nohighlight">\(\mathbb{P}\left[\bigcap\limits_{i=1}^nA_i\right]=\prod\limits_{i=1}^n\mathbb{P}[A_i]\)</span>.</p></li>
-</ul>
-</section>
-</div><div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
-<section class="example-content" id="proof-content">
-<p>Consider an urn with <span class="math notranslate nohighlight">\(n\)</span> orbs labeled <span class="math notranslate nohighlight">\(\{1,2,\dots,n\}\)</span>. We will draw an orb without looking and then putting it back.</p>
-<ol class="arabic simple">
-<li><p>Since there are <span class="math notranslate nohighlight">\(n\)</span> orbs, the probability we draw any specific orb is <span class="math notranslate nohighlight">\(\frac{1}{n}\)</span> (<span class="math notranslate nohighlight">\(\mathbb{P}[i\in \{1,2,\dots,n\}]=\frac{1}{n}\)</span>).</p></li>
-<li><p>We are only drawing one orb at a time. So, drawing orb <span class="math notranslate nohighlight">\(j\)</span> or orb <span class="math notranslate nohighlight">\(i\)</span> are mutually exclusive (we cannot draw both at once). For example, seeing 2 or 3 are cannot happen at the same time. So, <span class="math notranslate nohighlight">\(\mathbb{P}[2\cup 3]=\mathbb{P}[2]+\mathbb{P}[3]=\frac{1}{n}+\frac{1}{n}=\frac{2}{n}\)</span>.</p></li>
-<li><p>If we draw one orb, put it back, and draw again, then the event of seeing orb <span class="math notranslate nohighlight">\(j\)</span> first has no impact on seeing orb <span class="math notranslate nohighlight">\(i\)</span> second. So, the events are independent. For example, drawing 1 first has no impact on whether we draw 5 second. So, <span class="math notranslate nohighlight">\(\mathbb{P}[1\cap 5]=\mathbb{P}[1]\mathbb{P}[5]=\frac{1}{n}\cdot\frac{1}{n}=\frac{1}{n^2}\)</span></p></li>
-</ol>
-</section>
-</div><p>This is the best case scenario. We do not have to care about overlap of events. But, you might wonder what happens if events are not independent or mutually exclusive? In general, we have the following:</p>
-<div class="proof theorem admonition" id="theorem-5">
-<p class="admonition-title"><span class="caption-number">Theorem 18 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>For two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, the probability of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> happening (<span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]\)</span>) is the probability of <span class="math notranslate nohighlight">\(B\)</span> happening (<span class="math notranslate nohighlight">\(\mathbb{P}[B]\)</span>) times the probability of <span class="math notranslate nohighlight">\(A\)</span> happening <em>given that <span class="math notranslate nohighlight">\(B\)</span> has already happened</em> (<span class="math notranslate nohighlight">\(\mathbb{P}[A|B]\)</span>). That is,</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-\mathbb{P}[A\cap B]=\mathbb{P}[A|B]\mathbb{P}[B]
-\end{aligned}\]</div>
-<p>We call <span class="math notranslate nohighlight">\(\mathbb{P}[A|B]\)</span> a <em>conditional probability</em> and we say “probability of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span>”.</p>
-</section>
-</div><p>Hopefully this seems rather intuitive: “<span class="math notranslate nohighlight">\(A\)</span> <em>and</em> <span class="math notranslate nohighlight">\(B\)</span> happening means <span class="math notranslate nohighlight">\(B\)</span> must have happened. Now given that <span class="math notranslate nohighlight">\(B\)</span> has happened, consider <span class="math notranslate nohighlight">\(A\)</span>”. Note that the choice of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> here is arbitrary. That is, we can also say <span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]=\mathbb{P}[B|A]\mathbb{P}[A]\)</span>.</p>
-<div class="proof example admonition" id="example-6">
-<p class="admonition-title"><span class="caption-number">Example 10 </span></p>
-<section class="example-content" id="proof-content">
-<p>Consider again the orb and urn problem with <span class="math notranslate nohighlight">\(n\)</span> numbered orbs. We will draw without looking. This time, we will not put the drawn orb back in the urn. Consider drawing 2 and setting it to the side. Now, there are only <span class="math notranslate nohighlight">\(n-1\)</span> orbs in the urn. This affects the probability of drawing any of the remaining orbs. Originally, <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{n}\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> in the urn. Without 2, we have <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{n-1}\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> in the urn.</p>
-</section>
-</div><p>Consider the second part of the definition of a probability: <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=1\)</span>. What this is saying is that the probability that <em>anything</em> happens is 1. That is, there is a 100% chance of something happening. Formally, we would say <span class="math notranslate nohighlight">\(\mathbb{P}[\Omega]=1\)</span> (the probability of our sample space is 1). This leads to the following theorem.</p>
-<div class="proof theorem admonition" id="theorem-7">
-<p class="admonition-title"><span class="caption-number">Theorem 19 </span></p>
-<section class="theorem-content" id="proof-content">
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbb{P}[A]=1-\mathbb{P}[A^C]\)</span> for all <span class="math notranslate nohighlight">\(A\in \Omega\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbb{P}\left[\bigcup\limits_{i=1}^nA_i\right]=1-\mathbb{P}\left[\bigcap\limits_{i=1}^nA_i^C\right]\)</span>
-for <span class="math notranslate nohighlight">\(A_i\in \Omega\)</span></p></li>
-</ul>
-</section>
-</div><div class="proof admonition" id="proof">
-<p>Proof. <span class="math notranslate nohighlight">\(\mathbb{P}[A]=\mathbb{P}[\Omega\setminus A^C]=1-\mathbb{P}[A^C]\)</span>
-and then DeMorgan’s laws to obtain second point.</p>
-</div>
+<p>A lot of the rules of combinatorics have probabilistic counterparts. For example, the addition rule says that if sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are disjoint <span class="math notranslate nohighlight">\((|A\cap B|=0)\)</span>, then <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>. Likewise, the following holds:</p>
+<p>Likewise, there is a product rule for probability:</p>
+<p>This is the best case scenario. We do not have to care about overlap of events. But, you might wonder what happens if events are not independent or mutually exclusive? In general, we have the following:</p>
+<p>Hopefully this seems rather intuitive: “<span class="math notranslate nohighlight">\(A\)</span> <em>and</em> <span class="math notranslate nohighlight">\(B\)</span> happening means <span class="math notranslate nohighlight">\(B\)</span> must have happened. Now given that <span class="math notranslate nohighlight">\(B\)</span> has happened, consider <span class="math notranslate nohighlight">\(A\)</span>”. Note that the choice of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> here is arbitrary. That is, we can also say <span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]=\mathbb{P}[B|A]\mathbb{P}[A]\)</span>.</p>
+<p>Consider the second part of the definition of a probability: <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=1\)</span>. What this is saying is that the probability that <em>anything</em> happens is 1. That is, there is a 100% chance of something happening. Formally, we would say <span class="math notranslate nohighlight">\(\mathbb{P}[\Omega]=1\)</span> (the probability of our sample space is 1). This leads to the following theorem.</p>
 </section>
 <section id="random-variables">
 <h2>Random Variables<a class="headerlink" href="#random-variables" title="Link to this heading">#</a></h2>
 <p>We are now ready to define what is called a random variable. Much like a variable in the traditional sense, a random variable is a placeholder that takes on values from some set. A random variable differs from a traditional variable since we also require that it takes <em>random</em> values from <span class="math notranslate nohighlight">\(\Omega\)</span> according to <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>. Formally,</p>
-<div class="proof definition admonition" id="definition-8">
-<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Random Variable)</p>
-<section class="definition-content" id="proof-content">
-<p>A random variable <span class="math notranslate nohighlight">\(X:\Omega \to \mathbb{R}\)</span> is a function that maps the
-events in <span class="math notranslate nohighlight">\(\Omega\)</span> equipped with the probability <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span>.</p>
-</section>
-</div><p>The above definition may be scary but think about the following:</p>
+<p>The above definition may be scary but think about the following:</p>
 <ul class="simple">
 <li><p>Let <span class="math notranslate nohighlight">\(\Omega=\{\)</span>heads, tails<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(X:\Omega\to \Omega\)</span> be the
 outcome of a coin toss.</p></li>
@@ -438,34 +366,13 @@ be assigned 1.</p></li>
 dominoes<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(X:\Omega\to \{1,2,\dots,n\}\)</span> be the length of a
 randomly draw board.</p></li>
 </ul>
-<div class="proof definition admonition" id="definition-9">
-<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Expected Value)</p>
-<section class="definition-content" id="proof-content">
-<p>The <em>expectation</em> (expected value) of a random variable is defined as</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-\mathbb{E}[X]=\sum_{x}x\cdot \mathbb{P}[X=x]
-\end{aligned}\]</div>
-</section>
-</div><p>Let <span class="math notranslate nohighlight">\(X\)</span> be the outcome of a fair coin toss where 0 is heads and 1 is tails. The expected value of <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
+<p>Let <span class="math notranslate nohighlight">\(X\)</span> be the outcome of a fair coin toss where 0 is heads and 1 is tails. The expected value of <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \mathbb{E}[X]=0\cdot \mathbb{P}[X=0]+1\cdot \mathbb{P}[X=1]=0\cdot\frac{1}{2}+1\cdot\frac{1}{2}=\frac{1}{2}
 \end{align}\]</div>
 <p>We can think of the expected value in the following way: “Given that we have assigned events in <span class="math notranslate nohighlight">\(\Omega\)</span> the probabilities <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>, what will be the average of events we see?” In the coin toss example, we should see heads half the time and tails half the time. Assigning these 0 and 1 respectively, we should see 0 and 1 half the time. So, the average of things we should see is <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span>. A couple useful properties of expectation:</p>
-<div class="proof theorem admonition" id="theorem-10">
-<p class="admonition-title"><span class="caption-number">Theorem 20 </span> (Linearity of Expectation)</p>
-<section class="theorem-content" id="proof-content">
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[f(X)]=\sum\limits_xf(x)\cdot\mathbb{P}[X=x]\)</span> for random
-variable <span class="math notranslate nohighlight">\(X\)</span> and function <span class="math notranslate nohighlight">\(f\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbb{E}[aX+bY]=a\mathbb{E}[X]+b\mathbb{E}[Y]\)</span> for scalars <span class="math notranslate nohighlight">\(a,b\)</span>
-and random variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\mathbb{E}\left[\sum\limits_{i=1}^na_iX_i\right]=\sum\limits_{i=1}^na_i\mathbb{E}[X_i]\)</span>
-for scalars <span class="math notranslate nohighlight">\(a,b\)</span> and random variables <span class="math notranslate nohighlight">\(X_i\)</span></p></li>
-</ul>
-</section>
-</div><p>Coming soon:</p>
+<p>Coming soon:</p>
 <ul class="simple">
 <li><p>Indicator variables</p></li>
 <li><p>Erdös-Renyi model</p></li>

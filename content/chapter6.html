@@ -36,7 +36,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -144,8 +143,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -344,67 +349,32 @@
 <p>In this section, we’ll go through a few key problems to develop our intuition for combinatorial problems.</p>
 <section id="trailing-zeroes-in-a-product">
 <h2>Trailing Zeroes in a Product<a class="headerlink" href="#trailing-zeroes-in-a-product" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-0">
-<p class="admonition-title"><span class="caption-number">Question 16 </span></p>
-<section class="question-content" id="proof-content">
-<p>Consider the set <span class="math notranslate nohighlight">\(S=\{1,2,3,\dots, 325\}\)</span>. How many zeroes are at the end of the product <span class="math notranslate nohighlight">\(1\cdot 2\cdot 3\cdot \cdots \cdot 324\cdot 325\)</span>? E.g. in <span class="math notranslate nohighlight">\(1\cdot 2\cdot 3\cdot 4\cdot 5=120\)</span> there is one zero at the end, but in <span class="math notranslate nohighlight">\(1\cdot 2\cdot 3\cdot 4=24\)</span> there are none.</p>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Potential Answer:</strong>
 Note that there are more powers of two than 5 in our set (i.e. the powers of 5 are <span class="math notranslate nohighlight">\(\{5, 25, 125\}\)</span> while powers of 2 are <span class="math notranslate nohighlight">\(\{2,4,8,16,32,\dots, 256\}\)</span>). We want to pair up 2’s and 5’s until we run out of 5’s. Try for yourself to verify there are 65 multiples of 5, 13 multiples of 25, and 2 multiples of 125 in <span class="math notranslate nohighlight">\(S\)</span>. Then, there are at least 80 zeroes. Try and find why this implies there are <em>exactly</em> 80 zeroes.</p>
 </div></blockquote>
 </section>
 <section id="points-in-a-square">
 <h2>Points in a Square<a class="headerlink" href="#points-in-a-square" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-1">
-<p class="admonition-title"><span class="caption-number">Question 17 </span></p>
-<section class="question-content" id="proof-content">
-<p>Given five points inside a 2 by 2 square, show that there are two points whose distance is at most <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Potential Answer:</strong> Consider partitioning the square into 4 equally sized squares. The maximum distance between any two points is between the corners themselves. This distance is <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>. Since we have 5 points in 4 squares, by the pigeonhole principle, we have at least 2 points in one square. These two points could be on the corners, which means the distance between them is at most <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
 </div></blockquote>
 </section>
 <section id="binomial-theorem">
 <h2>Binomial Theorem<a class="headerlink" href="#binomial-theorem" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-2">
-<p class="admonition-title"><span class="caption-number">Question 18 </span></p>
-<section class="question-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> be real numebers. Use a combinatorial argument to show that</p>
-<div class="math notranslate nohighlight">
-\[\begin{align}
-(x+y)^n&amp;=\sum_{k=0}^n\binom{n}{k}x^ky^{n-k}
-\end{align}\]</div>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Potential Answer:</strong> On the left, we have <span class="math notranslate nohighlight">\(n\)</span> factors of <span class="math notranslate nohighlight">\((x+y)\)</span>, <span class="math notranslate nohighlight">\((x+y)^n=(x+y)(x+y)\cdots (x+y)\)</span>. The coefficient of <span class="math notranslate nohighlight">\(x^k\)</span> will be the number of ways to choose <span class="math notranslate nohighlight">\(x\)</span> from the total factors. Since we have <span class="math notranslate nohighlight">\(n\)</span>, we also choose <span class="math notranslate nohighlight">\(y^{n-k}\)</span> as a consequence. This corresponds to selecting <span class="math notranslate nohighlight">\(k\)</span> terms to contribute to the coefficient of <span class="math notranslate nohighlight">\(x^ky^{n-k}\)</span> from <span class="math notranslate nohighlight">\(n\)</span> factors. Since we can do this in <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> ways, the coefficient of <span class="math notranslate nohighlight">\(x^ky^{n-k}\)</span> is <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span>. Adding from <span class="math notranslate nohighlight">\(k=0\)</span> to <span class="math notranslate nohighlight">\(k=n\)</span> gives <em>all</em> the ways we can do this.</p>
 </div></blockquote>
 <p>This relationship between <span class="math notranslate nohighlight">\((x+y)^n\)</span> and the right-hand sum is what we call the <em>binomial theorem</em>.</p>
 </section>
 <section id="lattice-paths">
 <h2>Lattice Paths<a class="headerlink" href="#lattice-paths" title="Link to this heading">#</a></h2>
-<div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 12 </span></p>
-<section class="definition-content" id="proof-content">
-<p>Consider an <span class="math notranslate nohighlight">\(m\times n\)</span> grid with corners <span class="math notranslate nohighlight">\((0,0), (0,n),(m,0)~\&amp;~(m,n)\)</span>. A <em>lattice path</em> is a path starting at (0,0) and ending at <span class="math notranslate nohighlight">\((m,n)\)</span> only
-moving right and up.</p>
-</section>
-</div><p>Below is an example of a lattice path on the <span class="math notranslate nohighlight">\(5\times 4\)</span> grid.
+<p>Below is an example of a lattice path on the <span class="math notranslate nohighlight">\(5\times 4\)</span> grid.
 ![image](math 325/book/content/photos/lattice path.png){width=”.3\textwidth”}</p>
-<div class="proof question admonition" id="question-4">
-<p class="admonition-title"><span class="caption-number">Question 19 </span></p>
-<section class="question-content" id="proof-content">
-<p>How many lattices paths are there an <span class="math notranslate nohighlight">\(m\times n\)</span> grid?</p>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Potential Answer:</strong> Consider the steps we must make as a list <span class="math notranslate nohighlight">\(L=\{\underline{\hspace{.7em}},\underline{\hspace{.7em}},\underline{\hspace{.7em}}, \dots,\underline{\hspace{.7em}}\}\)</span>. To get from <span class="math notranslate nohighlight">\((0,0)\)</span> to <span class="math notranslate nohighlight">\((m,n)\)</span>, we must move right <span class="math notranslate nohighlight">\(m\)</span> steps and we must move up <span class="math notranslate nohighlight">\(n\)</span> steps. In total, we must make <span class="math notranslate nohighlight">\(m+n\)</span> steps (i.e. <span class="math notranslate nohighlight">\(|L|=m+n\)</span>). Note that if we choose when to go up/right, this determines when we must go right/up. There are <span class="math notranslate nohighlight">\(\binom{m+n}{n}\)</span> ways to select which steps should be up’s. We then fill the rest of the steps with right’s. Likewise, we could have also counted the ways to place right’s, <span class="math notranslate nohighlight">\(\binom{m+n}{m}\)</span>, and then place the up’s. As such, there are <span class="math notranslate nohighlight">\(\binom{m+n}{n}=\binom{m+n}{m}\)</span> lattice paths in this case.</p>
 </div></blockquote>
-<div class="proof question admonition" id="question-5">
-<p class="admonition-title"><span class="caption-number">Question 20 </span></p>
-<section class="question-content" id="proof-content">
-<p>How many lattice paths on an <span class="math notranslate nohighlight">\(m\times n\)</span> grid do not cross the line <span class="math notranslate nohighlight">\(y=x\)</span>? i.e. They can meet the points <span class="math notranslate nohighlight">\((i,i)\)</span> but not <span class="math notranslate nohighlight">\((i+1,i)\)</span>.</p>
-</section>
-</div><p>Below is an example of paths we want to consider. On the left, we have a path that does not cross <span class="math notranslate nohighlight">\(y=x\)</span> while on the right we do.</p>
+<p>Below is an example of paths we want to consider. On the left, we have a path that does not cross <span class="math notranslate nohighlight">\(y=x\)</span> while on the right we do.</p>
 <p>![image](math 325/lecture notes/week 3/goodpath.png){width=”.3\textwidth”}
 ![image](math 325/lecture notes/week 3/badpath.png){width=”.3\textwidth”}\</p>
 <blockquote>
@@ -432,12 +402,7 @@ moving right and up.</p>
 (5.25,8.25) – (7.5,8.25); (7.5,9.75) – (9.25,9.75); (7.5,8.25) –
 (9.25,8.25); (9.25,9.75) – (9.25,8.25); (3.5,9.75) – (3.5,8.25);
 (5,9.75) – (5,8.25); (7.75,9.75) – (7.75,8.25);</p>
-<div class="proof question admonition" id="question-6">
-<p class="admonition-title"><span class="caption-number">Question 21 </span></p>
-<section class="question-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(t_n\)</span> be the number of ways there are to tile the <span class="math notranslate nohighlight">\(1\times n\)</span> board with squares and dominos. Find an expression for <span class="math notranslate nohighlight">\(t_n\)</span> using <span class="math notranslate nohighlight">\(t_{n-1}\)</span> and <span class="math notranslate nohighlight">\(t_{n-2}\)</span> (i.e. some function <span class="math notranslate nohighlight">\(t_n=f(t_{n-1},t_{n-2})\)</span>).</p>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Potential Answer:</strong> Consider a tiling of a <span class="math notranslate nohighlight">\(1\times n-1\)</span> board. How can we extend this tiling to a tiling of <span class="math notranslate nohighlight">\(1\times n\)</span>? By adding a <span class="math notranslate nohighlight">\(1\times 1\)</span> square. Likewise, we can extend a tiling of a <span class="math notranslate nohighlight">\(1\times n-2\)</span> board to a tiling of <span class="math notranslate nohighlight">\(1\times n\)</span> by adding a domino. The extension of these tilings never produce the same tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span> board. Moreover, any tiling must end in either a domino or a square. So, a tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span> board is counted by these two cases. As such, <span class="math notranslate nohighlight">\(t_n=t_{n-1}+t_{n-2}\)</span>.</p>
 </div></blockquote>
 <p>Consider then, <span class="math notranslate nohighlight">\(t_1\)</span>. There is only 1 way to tile a <span class="math notranslate nohighlight">\(1\times 1\)</span> board,
@@ -454,12 +419,7 @@ t_5&amp;=8\\
 \end{align}\end{split}\]</div>
 <p>You might immediately recognize the sequence,
 the <em>Fibonacci Numbers</em>! This is arguably the most ubiquitous sequence in combinatorics. The list of problems with Fibonacci numbers as the solution is immense. For a brief list, refer here <a class="reference external" href="https://oeis.org/A000045">https://oeis.org/A000045</a>.</p>
-<div class="proof question admonition" id="question-7">
-<p class="admonition-title"><span class="caption-number">Question 22 </span></p>
-<section class="question-content" id="proof-content">
-<p>Recall we defined <span class="math notranslate nohighlight">\(t_n\)</span> to be the number of ways to tile the <span class="math notranslate nohighlight">\(1\times n\)</span> board with <span class="math notranslate nohighlight">\(1\times 1\)</span> squares and <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes. How many ways are there to tile a <span class="math notranslate nohighlight">\(2\times n\)</span> board with <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes?</p>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Potential Answer:</strong> Bijection! (<span class="math notranslate nohighlight">\(t_n=\)</span> the number of tilings of the <span class="math notranslate nohighlight">\(2\times n\)</span> board with dominoes)</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f\)</span>: Take a <span class="math notranslate nohighlight">\(2\times n\)</span> tiling with <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes. Split the board down the middle (horizontally) perhaps with some domino-cutting-strength scissors. We now have two copies of a tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span> board with <span class="math notranslate nohighlight">\(1\times 1\)</span> squares and <span class="math notranslate nohighlight">\(1\times 2\)</span> dominoes.</p></li>
@@ -469,12 +429,7 @@ the <em>Fibonacci Numbers</em>! This is arguably the most ubiquitous sequence in
 </section>
 <section id="sums">
 <h2>{1,2}-sums<a class="headerlink" href="#sums" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-8">
-<p class="admonition-title"><span class="caption-number">Question 23 </span></p>
-<section class="question-content" id="proof-content">
-<p>Using just 1 and 2, how many ways are there to form a sequence that sum to <span class="math notranslate nohighlight">\(n\)</span>? E.g. 1+1+2=1+2+1=4 are two examples of sequences that sum to 4.</p>
-</section>
-</div><blockquote>
+<blockquote>
 <div><p><strong>Potential Answer:</strong> We have already solved this!</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(f\)</span>: Take a sum <span class="math notranslate nohighlight">\(q_1+q_2+q_3+\dots+q_k=n\)</span> where each <span class="math notranslate nohighlight">\(q_i\)</span> is either 1 or 2. We can create a tiling of the <span class="math notranslate nohighlight">\(1\times n\)</span> board using <span class="math notranslate nohighlight">\(k\)</span> tiles as follows:</p>

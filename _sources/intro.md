@@ -6,6 +6,4 @@ We covered foundational combinatorics materials and dove into some more specific
 
 There are warmups at the beginning of each section (just like in-class) and plenty of exercises at the end of each section if you would like a challenge!
 
-<p align="center">
-  <img src="./content/photos/random_walk.gif" alt="Random Walk on Graph">
-</p>
+![stuff](./content/photos/random_walk.gif)

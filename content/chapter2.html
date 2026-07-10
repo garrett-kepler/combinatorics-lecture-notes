@@ -36,7 +36,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -144,8 +143,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -341,23 +346,8 @@
 <h1>Chapter 2: Problem Solving Basics &amp; Set Theory<a class="headerlink" href="#chapter-2-problem-solving-basics-set-theory" title="Link to this heading">#</a></h1>
 <p>We will start with questions of <em>enumeration</em> and dedicate a fair amount
 of time to this concept.</p>
-<div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
-<section class="definition-content" id="proof-content">
-<p>The problem of <em>enumeration</em> is to count the total number of objects with a specified property.</p>
-</section>
-</div><p>A few basic examples:</p>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 1 </span></p>
-<section class="example-content" id="proof-content">
-<ul class="simple">
-<li><p>How many ways are there to assign <span class="math notranslate nohighlight">\(n\)</span> students to <span class="math notranslate nohighlight">\(m\)</span> projects?</p></li>
-<li><p>How many distinct Sudoku puzzles are there?</p></li>
-<li><p>How many total (potentially isomorphic) graphs are there are on <span class="math notranslate nohighlight">\(n\)</span>
-nodes?</p></li>
-</ul>
-</section>
-</div><p>This questions can often be difficult to answer given a certain object
+<p>A few basic examples:</p>
+<p>This questions can often be difficult to answer given a certain object
 with a desired property. However, the philosophical approach we often
 take is: <strong>simplify</strong>!</p>
 <p>Our approach to these problems can be summarized in a joke told to me by
@@ -373,18 +363,7 @@ mentality: <em>simplify</em>! Once we’ve simplified, we’ll ask ourselves: �
 we generalize this?”</p>
 <section id="i-have-reduced-it-to-a-previously-solved-problem">
 <h2>“I have reduced it to a previously solved problem!”<a class="headerlink" href="#i-have-reduced-it-to-a-previously-solved-problem" title="Link to this heading">#</a></h2>
-<div class="proof question admonition" id="question-2">
-<p class="admonition-title"><span class="caption-number">Question 2 </span></p>
-<section class="question-content" id="proof-content">
-<p>Consider the following problems:</p>
-<ol class="arabic simple">
-<li><p>How many whole numbers are between 1 and 325 (including 1 and 325)?</p></li>
-<li><p>How many whole numbers are between 28 and 352 (including 28 and 352)?</p></li>
-<li><p>How many even numbers are there between 28 and 352 (including 28 and 352)?</p></li>
-<li><p>How many numbers between 102 and 1074 are divisible by 3?</p></li>
-</ol>
-</section>
-</div><p>On the one hand, these are four distinct problems. On the other, you may
+<p>On the one hand, these are four distinct problems. On the other, you may
 be able to see there is a process we can use to answer all of them. One
 main approach we often utilize in combinatorics is the following: to
 count what we need to count, reframe the problem as something we already
@@ -453,38 +432,24 @@ the same size. The next section will discuss how to use a <em>bijection</em> to 
 <p>This concept of bijection we subtly utilized previously is actually a
 fundamental result combinatorialists love to exploit. Before we get
 there, some basics are necessary.</p>
-<div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
-<section class="definition-content" id="proof-content">
-<p>A <em>set</em> is a collection of distinct objects. E.g. the set of integers between 28 and 56 = <span class="math notranslate nohighlight">\(\{28,29,30,\dots, 56\}\)</span>, a set of graphs =</p>
-</section>
-</div><ul class="simple">
+<ul class="simple">
 <li></li>
 </ul>
 <p>Note in our definition of a set we require <em>distinctness</em>. As such, the
 collection <span class="math notranslate nohighlight">\(\{1,1,2,3,\dots,29\}\)</span> is not a set. Likewise with any
 collection with repeating elements, but this permits another important
 definition:</p>
-<div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 3 </span></p>
-<section class="definition-content" id="proof-content">
-<p>A <em>multiset</em> is a collection of not necessarily distinct objects. E.g. a multiset of integers between 28 and 56 = <span class="math notranslate nohighlight">\(\{28,28,28,29,30,\dots, 56\}\)</span></p>
-</section>
-</div><p>However, we won’t touch multisets until later on. For now, let us
+<p>However, we won’t touch multisets until later on. For now, let us
 discuss relations between sets.</p>
-<div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 4 </span></p>
-<section class="definition-content" id="proof-content">
-<p>A <em>function</em> <span class="math notranslate nohighlight">\(f:A\to B\)</span> is a relation between sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> such that for each <span class="math notranslate nohighlight">\(a\in A\)</span> (<span class="math notranslate nohighlight">\(a\)</span> in <span class="math notranslate nohighlight">\(A\)</span>), there is a unique <span class="math notranslate nohighlight">\(b\in B\)</span> such that <span class="math notranslate nohighlight">\(f(a)=b\)</span>.</p>
-</section>
-</div><p>As an example, on the left, we have <span class="math notranslate nohighlight">\(g:A\to B\)</span> that assigns the second
-element in <span class="math notranslate nohighlight">\(A\)</span> to two elements in <span class="math notranslate nohighlight">\(B\)</span>. This means <span class="math notranslate nohighlight">\(g\)</span> a function. However, on the right, we have <span class="math notranslate nohighlight">\(f:A\to B\)</span> that assigns each element in <span class="math notranslate nohighlight">\(A\)</span> only one element in <span class="math notranslate nohighlight">\(B\)</span>. This means <span class="math notranslate nohighlight">\(f\)</span> a function.</p>
-<div class="proof definition admonition" id="definition-6">
-<p class="admonition-title"><span class="caption-number">Definition 5 </span></p>
-<section class="definition-content" id="proof-content">
-<p>Firstly, a function <span class="math notranslate nohighlight">\(f\)</span> is <em>injective</em> if distinct elements in <span class="math notranslate nohighlight">\(A\)</span> are mapped to distinct elements in <span class="math notranslate nohighlight">\(B\)</span>. Secondly, <span class="math notranslate nohighlight">\(f\)</span> is <em>surjective</em> if every element in <span class="math notranslate nohighlight">\(B\)</span> has at least one element in <span class="math notranslate nohighlight">\(A\)</span> that gets mapped to it. Lastly, if <span class="math notranslate nohighlight">\(f\)</span> is both injective and surjective, then <span class="math notranslate nohighlight">\(f\)</span> is <em>bijective</em>.</p>
-</section>
-</div><p>For combinatorial purposes, one nice way to think of a function
+<p>As an example, on the left, we have <span class="math notranslate nohighlight">\(g:A\to B\)</span> that assigns the second element in <span class="math notranslate nohighlight">\(A\)</span> to two elements in <span class="math notranslate nohighlight">\(B\)</span>. This means <span class="math notranslate nohighlight">\(g\)</span> a function. However, on the right, we have <span class="math notranslate nohighlight">\(f:A\to B\)</span> that assigns each element in <span class="math notranslate nohighlight">\(A\)</span> only one element in <span class="math notranslate nohighlight">\(B\)</span>. This means <span class="math notranslate nohighlight">\(f\)</span> a function.</p>
+<figure class="align-default" id="directive-fig">
+<a class="reference internal image-reference" href="photos/gseq1.png"><img alt="photos/gseq1.png" src="photos/gseq1.png" style="height: 150px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Here is my figure caption!</span><a class="headerlink" href="#directive-fig" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For combinatorial purposes, one nice way to think of a function
 <span class="math notranslate nohighlight">\(f:A\to B\)</span> as the placement of a set of objects <span class="math notranslate nohighlight">\(A\)</span> into a set of boxes
 <span class="math notranslate nohighlight">\(B\)</span>:</p>
 <ul class="simple">
@@ -501,40 +466,11 @@ same box.</p></li>
 objects are placed in the same box.</p></li>
 </ul>
 <p>But, why do we care about this as combinatorialists?</p>
-<div class="proof theorem admonition" id="theorem-7">
-<p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>Again, let <span class="math notranslate nohighlight">\(f:A\to B\)</span> as defined above. Then,</p>
-<ol class="arabic simple">
-<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is injective, <span class="math notranslate nohighlight">\(|A|\leq |B|\)</span></p></li>
-<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is surjective, <span class="math notranslate nohighlight">\(|A|\geq |B|\)</span></p></li>
-<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is bijective, <span class="math notranslate nohighlight">\(|A|=|B|\)</span>
-where <span class="math notranslate nohighlight">\(|\cdot|\)</span> denotes the number of elements in a set.</p></li>
-</ol>
-</section>
-</div><p>First, an outline of a proof.</p>
-<div class="proof admonition" id="proof">
-<p>Proof. Let <span class="math notranslate nohighlight">\(f\)</span> be a function such that <span class="math notranslate nohighlight">\(f:A\to B\)</span> for sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>.\</p>
-<ol class="arabic simple">
-<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is injective, it ensures no two objects are in the same box.
-So, there must be at least enough boxes to house these distinctly
-assigned objects (<span class="math notranslate nohighlight">\(|A|\leq |B|\)</span>).</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is surjective, it leaves no box empty. So, there must be at
-least enough objects to fill each box (<span class="math notranslate nohighlight">\(|A|\geq |B|\)</span>).</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is bijective, it ensures no two objects are in the same box
-<em>and</em> no box is left empty. As such, we know <span class="math notranslate nohighlight">\(|A|\leq |B|\)</span> <em>and</em>
-<span class="math notranslate nohighlight">\(|A|\geq |B|\)</span> (i.e. that <span class="math notranslate nohighlight">\(|A|=|B|\)</span>).</p></li>
-</ol>
-</div>
+<p>First, an outline of a proof.</p>
 <p>This simple statement is incredibly powerful. What this theorem firstly tells us is that there is a way to infer information about the <em>sizes</em> of the sets when we have a specific property about the <em>relationip</em> between those sets. Most importantly, the theorem also states that if there exists a bijection between two sets, they must be the exact same size. We can exploit this fact to enumerate easily! In fact, we already have.</p>
 <p>Think back to our second problem: “how many integers are there between 28 and 352 inclusive?”. Perhaps we write out “28 is <span class="math notranslate nohighlight">\(1^{st}\)</span>, 29 is <span class="math notranslate nohighlight">\(2^{nd}\)</span>, <span class="math notranslate nohighlight">\(\dots\)</span>” and so on until we reach 352 or count on our 325 fingers one by one. Either way we know this would be annoying and tedious to count explicitly. By defining a bijective function between sets, we eased the trouble, <span class="math notranslate nohighlight">\(f(a)=a-27\)</span> for <span class="math notranslate nohighlight">\(a\in \{28,29,30,\dots, 325\}\)</span>.</p>
-<p>From this final “proof” in <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">injsurjbij</span></code>, we can infer a lot of information. For clarity, if <span class="math notranslate nohighlight">\(f\)</span> is bijective, each object has a distinct box <em>and</em> each box has a distinct object. If we wi to reverse the process of assignment <span class="math notranslate nohighlight">\(f\)</span> has committed, we could easily do so: simply reverse each assignment! This thinking leads to the following theorem:</p>
-<div class="proof theorem admonition" id="theorem-8">
-<p class="admonition-title"><span class="caption-number">Theorem 2 </span></p>
-<section class="theorem-content" id="proof-content">
-<p>The function <span class="math notranslate nohighlight">\(f:A\to B\)</span> is a bijection if and only if <span class="math notranslate nohighlight">\(f^{-1}\)</span> exists.</p>
-</section>
-</div><p>This allows us to formalize our results:</p>
+<p>From this final “proof” in <span class="xref std std-ref">injsurjbij</span>, we can infer a lot of information. For clarity, if <span class="math notranslate nohighlight">\(f\)</span> is bijective, each object has a distinct box <em>and</em> each box has a distinct object. If we wi to reverse the process of assignment <span class="math notranslate nohighlight">\(f\)</span> has committed, we could easily do so: simply reverse each assignment! This thinking leads to the following theorem:</p>
+<p>This allows us to formalize our results:</p>
 <ul class="simple">
 <li><p>Let <span class="math notranslate nohighlight">\(A=\{28,29,\dots, 352\}\)</span>, <span class="math notranslate nohighlight">\(B=\{1,2,\dots, 325\}\)</span>, and <span class="math notranslate nohighlight">\(f:A\to B\)</span>
 be defined as <span class="math notranslate nohighlight">\(f(a)=a-27=b\)</span> for <span class="math notranslate nohighlight">\(a\in A\)</span> and <span class="math notranslate nohighlight">\(b\in B\)</span>.</p></li>
@@ -544,7 +480,7 @@ be defined as <span class="math notranslate nohighlight">\(f(a)=a-27=b\)</span> 
 know <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
 <li><p>Therefore, <span class="math notranslate nohighlight">\(|\{1,2,\dots, 325\}|=|\{28,29,\dots, 352\}|=325\)</span>.</p></li>
 </ul>
-<p>We can use the same process with problems 3 and 4 of <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">questions</span></code>:</p>
+<p>We can use the same process with problems 3 and 4 of <span class="xref std std-ref">questions</span>:</p>
 <ul class="simple">
 <li><p>Let <span class="math notranslate nohighlight">\(A=\{28,30, 32,\dots, 352\}\)</span> and define <span class="math notranslate nohighlight">\(f(a)=\frac{1}{2}a-13=b\)</span>
 for <span class="math notranslate nohighlight">\(a\in A\)</span>. What is <span class="math notranslate nohighlight">\(f^{-1}\)</span>? What is <span class="math notranslate nohighlight">\(B\)</span>? Conclude <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>

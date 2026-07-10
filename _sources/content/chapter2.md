@@ -30,7 +30,6 @@ bucket, fills it at the sink, and puts out the fire.</i>
 
 <i>The next day, the same mathematician returns to the same room. He sees a fire in the same corner. But, this time the bucket is full of water conveniently placed by the fire. So, he picks up the bucket, empties the water in the sink, places the bucket empty where it was from the day before and leaves. As he exits, he exclaims
 victoriously \"I've reduced it to a previously solved problem!\"</i>
-
 </p>
 
 Our first goal will be to mimic this proverbial mathematician's
@@ -141,8 +140,17 @@ discuss relations between sets.
 A *function* $f:A\to B$ is a relation between sets $A$ and $B$ such that for each $a\in A$ ($a$ in $A$), there is a unique $b\in B$ such that $f(a)=b$.
 ````
 
-As an example, on the left, we have $g:A\to B$ that assigns the second
-element in $A$ to two elements in $B$. This means $g$ a function. However, on the right, we have $f:A\to B$ that assigns each element in $A$ only one element in $B$. This means $f$ a function.
+As an example, on the left, we have $g:A\to B$ that assigns the second element in $A$ to two elements in $B$. This means $g$ a function. However, on the right, we have $f:A\to B$ that assigns each element in $A$ only one element in $B$. This means $f$ a function.
+
+
+```{figure} ../photos/gseq1.png
+---
+height: 150px
+name: directive-fig
+---
+Here is my figure caption!
+```
+
 
 ````{prf:definition}
 Firstly, a function $f$ is *injective* if distinct elements in $A$ are mapped to distinct elements in $B$. Secondly, $f$ is *surjective* if every element in $B$ has at least one element in $A$ that gets mapped to it. Lastly, if $f$ is both injective and surjective, then $f$ is *bijective*.
