@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method &#8212; Combinatorics Lecture Notes</title>
+    <title>Chapter 9: Recurrence Relations &amp; Generating Functions &#8212; Combinatorics Lecture Notes</title>
   
   
   
@@ -63,9 +63,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'content/week7-9';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/chapter9';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 10: P.I.E. &amp; D.I.E." href="chapter10.html" />
+    <link rel="prev" title="Chapter 8: Graphs" href="chapter8.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -117,8 +119,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -165,7 +165,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="chapter1.html">Chapter 1: What is Combinatorics?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter2.html">Chapter 2: Problem Solving Basics &amp; Set Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter3.html">Chapter 3: Introduction to Counting Techniques</a></li>
@@ -174,7 +174,9 @@
 <li class="toctree-l1"><a class="reference internal" href="chapter6.html">Chapter 6: Combinatorial Thinking Practicum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter7.html">Chapter 7: Combinatorial Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chapter8.html">Chapter 8: Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="week11-13.html">Chapter 8: Probability, Graphs, &amp; Ramsey Theory</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 9: Recurrence Relations &amp; Generating Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter10.html">Chapter 10: P.I.E. &amp; D.I.E.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter11.html">Chapter 11: Probability, Graphs, &amp; Ramsey Theory</a></li>
 </ul>
 
     </div>
@@ -234,7 +236,7 @@
       
       
       
-      <li><a href="../_sources/content/week7-9.md" target="_blank"
+      <li><a href="../_sources/content/chapter9.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -310,7 +312,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) & the D.I.E. Method</h1>
+    <h1>Chapter 9: Recurrence Relations & Generating Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -320,8 +322,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-inclusion-exclusion">Principle of Inclusion-Exclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-i-e-method">D.I.E. Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmups">Warmups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relations">Recurrence Relations</a></li>
 </ul>
             </nav>
         </div>
@@ -333,154 +335,126 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-7-principle-of-inclusion-exclusion-p-i-e-the-d-i-e-method">
-<h1>Chapter 7: Principle of Inclusion-Exclusion (P.I.E.) &amp; the D.I.E. Method<a class="headerlink" href="#chapter-7-principle-of-inclusion-exclusion-p-i-e-the-d-i-e-method" title="Link to this heading">#</a></h1>
-<section id="principle-of-inclusion-exclusion">
-<h2>Principle of Inclusion-Exclusion<a class="headerlink" href="#principle-of-inclusion-exclusion" title="Link to this heading">#</a></h2>
-<p>Thus far, we’ve covered a very simple counting problem using set theory:
-For two sets <span class="math notranslate nohighlight">\(A,B\)</span>, if they are disjoint <span class="math notranslate nohighlight">\((|A\cap B|=0)\)</span>, we know that
-<span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>. For example, recall the problem of disjoint sets of
-students: “How many people are in Math 325 or Physics 533 if they occur
-at the same time?”. That is, to count the number of things in the set
-<span class="math notranslate nohighlight">\(A\cup B\)</span> we could just count the number of things in <span class="math notranslate nohighlight">\(A\)</span> once, count
-the number of things in <span class="math notranslate nohighlight">\(B\)</span> once, and sum them.</p>
-<p>\centering
-[[fig:my_label]]{#fig:my_label label=”fig:my_label”}</p>
-<p>However, in the case that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are not disjoint, we run into a
-problem. If we count the number of elements in <span class="math notranslate nohighlight">\(A\)</span>, then count the
-number of elements in <span class="math notranslate nohighlight">\(B\)</span>, we end up counting their shared elements
-twice!\</p>
-<p>\centering
-So, to count <span class="math notranslate nohighlight">\(|A\cup B|\)</span>, we must correct this over counting by
-<em>excluding</em> a copy of the set we over-counted. Counting <span class="math notranslate nohighlight">\(A\)</span>, we get
-<span class="math notranslate nohighlight">\(|A|\)</span>. Counting <span class="math notranslate nohighlight">\(B\)</span>, we get <span class="math notranslate nohighlight">\(|B|\)</span>. Since we count <span class="math notranslate nohighlight">\(|A\cap B|\)</span> twice, we
-can count <span class="math notranslate nohighlight">\(A\cup B\)</span> in a straightforward way:
-<span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|-|A\cap B|\)</span>. That is, by counting <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, we
-over-count <span class="math notranslate nohighlight">\(A\cap B\)</span>, so we correct this to find <span class="math notranslate nohighlight">\(|A\cup B|\)</span> (see Figure
-<a class="reference internal" href="#fig:simplepie"><span class="xref myst">[fig:simplepie]</span></a>{reference-type=”ref”
-reference=”fig:simplepie”} for a visual aid).\</p>
-<p>\centering
-[[fig:my_label]]{#fig:my_label label=”fig:my_label”}</p>
-<p>\newpage
-This is the idea of the <em>Principle of Inclusion-Exclusion (P.I.E.)</em>: We
-want to count the union of sets so…</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-9-recurrence-relations-generating-functions">
+<h1>Chapter 9: Recurrence Relations &amp; Generating Functions<a class="headerlink" href="#chapter-9-recurrence-relations-generating-functions" title="Link to this heading">#</a></h1>
+<section id="warmups">
+<h2>Warmups<a class="headerlink" href="#warmups" title="Link to this heading">#</a></h2>
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 34 </span></p>
+<section class="question-content" id="proof-content">
+<p>Given the following expressions, we’ll assume <span class="math notranslate nohighlight">\(n\geq 0\)</span> is an integer. Using the given values, we can plug in to the expression to find the next term in the sequence. Conjecture a function <span class="math notranslate nohighlight">\(a_n=f(n)\)</span> that does depend on any terms before it in the sequence.</p>
 <ul class="simple">
-<li><p>Include count of the individuals</p></li>
-<li><p>Exclude count of the pairwise intersections Include count of the
-triple-wise intersections</p></li>
-<li><p>Exclude count of the quadruple-wise intersections</p></li>
-<li><p>Include count of the quintuple-wise intersections $<span class="math notranslate nohighlight">\(\begin{aligned}
- \vdots\\
- \vdots
- \end{aligned}\)</span>$</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_n=2a_{n-1}+1\)</span> where <span class="math notranslate nohighlight">\(a_0=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{n+1}=a_n+a_{n-1}\)</span> where <span class="math notranslate nohighlight">\(a_0=0\)</span> and <span class="math notranslate nohighlight">\(a_1=1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_n=(a_{n-1})^{\frac{1}{n}}\)</span> where <span class="math notranslate nohighlight">\(a_0=1\)</span></p></li>
 </ul>
-<p>For those who are curious, there is a formula: $<span class="math notranslate nohighlight">\(\begin{aligned}
-\left|\bigcup_{i=1}^nA_i \right|&amp;=\sum_{i=1}|A_i|-\sum_{1\leq i&lt;j\leq n}|A_i\cap A_j|+\sum_{1\leq i&lt;j&lt;k\leq n}|A_i\cap A_j\cap A_k|-\cdots+(-1)^{n+1}|A_1\cap \cdots\cap A_n|\\
-&amp;=\sum_{\emptyset\neq I\subseteq\{1,2,\dots, n\}}(-1)^{|I|+1}\left|\bigcap_{i\in I}A_i\right|\end{aligned}\)</span>$</p>
-<p>though this is algebraic formulation is not often used in practice.</p>
 </section>
-<section id="d-i-e-method">
-<h2>D.I.E. Method<a class="headerlink" href="#d-i-e-method" title="Link to this heading">#</a></h2>
-<p>Oftentimes we are faced with a sum of the following form:
-$<span class="math notranslate nohighlight">\(\begin{aligned}
-\sum_{k=1}^n(-1)^kf_k&amp;=(-1)^nf_{n-1}\end{aligned}\)</span><span class="math notranslate nohighlight">\( where \)</span>f_k<span class="math notranslate nohighlight">\( is
-the \)</span>k<span class="math notranslate nohighlight">\(-th Fibonacci number. Luckily, we have been equipped with
-experience with these numbers. We may even have an idea of rephrasing
-this sum combinatorially. For example, we know that \)</span>f_k<span class="math notranslate nohighlight">\( counts the
-number of ways to tile a \)</span>1\times k<span class="math notranslate nohighlight">\( board with squares and dominos.
-This alternating seems to define a relationship between the tilings. How
-might we prove such a sum?  
-Thinking this specific example through, we see for even \)</span>k<span class="math notranslate nohighlight">\(, we have a
-coefficient \)</span>1<span class="math notranslate nohighlight">\(. For odd \)</span>k<span class="math notranslate nohighlight">\(, we have a coefficient \)</span>-1<span class="math notranslate nohighlight">\(. It is almost
-like the even tilings are naturally assigned 1 and odd tilings are
-naturally assigned -1. This sum seems to tell us that the set of tilings
-of every size has been split in two. But, for some reason they haven't
-been paired up all the way (i.e. why is there a \)</span>(-1)^nf_{n-1}$ on the
-right hand side?).<br />
-This vein of thinking led to the useful cousin of inclusion and
-exclusion called the D.I.E. method. It proceeds as follows:</p>
-<ol class="arabic simple">
-<li><p>: Describe what the sum counts <em>ignoring</em> the alternating</p></li>
-<li><p>: Define a sign-reversing involution between the sets of opposite
-parity</p></li>
-<li><p>: Count how many exclusions occur</p></li>
-</ol>
-<p>Without defining involution yet, we’ll discuss how a result might be
-proven. We already have a combinatorial model set up, so let’s try the
-D.I.E. method out:</p>
-<p>\hfill
-Prove that $<span class="math notranslate nohighlight">\(\begin{aligned}
-\sum_{k=1}^n(-1)^kf_k&amp;=(-1)^nf_{n-1}
-\end{aligned}\)</span>$</p>
-<p>\hfill</p>
-<ol class="arabic simple">
-<li><p>: Ignoring the alternating, <span class="math notranslate nohighlight">\(\sum\limits_{k=1}^nf_k\)</span> counts the
-number of ways to tile <span class="math notranslate nohighlight">\(1\times k\)</span> boards of size <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(n\)</span>
-using squares and dominos.</p></li>
-<li><p>: Recall that even tilings are assigned 1 by our sum and odd tilings
-assigned -1. Consider “toggling” the last tile of a tiling by
-replacing it with the opposite tile. That is, if the tiling ends in
-a square, remove it and place a domino. Likewise, if the tiling ends
-in a domino, remove it and place a square. Since removing a square
-and replacing it with a domino increases the size by 1, the tiling
-length changes from even to odd or odd to even. Likewise, replacing
-a domino with a square changes the length of the tiling from even to
-odd or odd to even. So, no matter what, we change “parity” (even/odd
-switch) and are “sign-reversing” (1/<span class="math notranslate nohighlight">\(-1\)</span> switching). Also, if we
-toggle the last tile twice, we result in the same tiling and are an
-“involution”.</p></li>
-<li><p>: What could go wrong? Well, if we have a tiling of the <span class="math notranslate nohighlight">\(n\)</span> board
-that ends in a square, we will toggle it and end up with a tiling of
-the <span class="math notranslate nohighlight">\(n+1\)</span> board. But, we don’t care about these tilings because our
-sum ends at <span class="math notranslate nohighlight">\(n\)</span>-sized boards. So, how many are there? Well, if our
-<span class="math notranslate nohighlight">\(n\)</span> board tiling ends in a square and we remove it, what do we have?
-A tiling of the <span class="math notranslate nohighlight">\(n-1\)</span> board. There are <span class="math notranslate nohighlight">\(f_{n-1}\)</span> such tilings. So,
-whatever <span class="math notranslate nohighlight">\(n\)</span> is assigned, we have not paired up <span class="math notranslate nohighlight">\(f_{n-1}\)</span> tilings in
-that assignment. That is, we have <span class="math notranslate nohighlight">\((-1)^nf_{n-1}\)</span> as a leftover
-term.</p></li>
-<li><p>: We have paired up each odd tilings with an even tilings via a sign
-reversing involution <em>except</em> <span class="math notranslate nohighlight">\(f_{n-1}\)</span> tilings assigned <span class="math notranslate nohighlight">\((-1)^n\)</span>.
-So, $<span class="math notranslate nohighlight">\(\begin{aligned}
-\sum_{k=1}^n(-1)^kf_k&amp;=(-1)^nf_{n-1}
-\end{aligned}\)</span>$</p></li>
-</ol>
-<p>Voilà! We have cleverly paired up our tilings to prove an otherwise hard
-to intuit sum. This is the idea of D.I.E. method. Another example for
-clarity:</p>
-<p>\hfill
-Prove that $<span class="math notranslate nohighlight">\(\begin{aligned}
-\sum_{k=0}^n(-1)^k\binom{n}{k}=0
-\end{aligned}\)</span>$</p>
-<p>\hfill</p>
-<ol class="arabic simple">
-<li><p>: Ignoring the alternating, <span class="math notranslate nohighlight">\(\sum\limits_{k=0}^n\binom{n}{k}\)</span> counts
-the number of subsets of <span class="math notranslate nohighlight">\(\{1,2,\dots, n\}\)</span> of sizes 1 through <span class="math notranslate nohighlight">\(n\)</span>.</p></li>
-<li><p>: Note that for even <span class="math notranslate nohighlight">\(k\)</span>, we have a coefficient of 1. Meanwhile, odd
-<span class="math notranslate nohighlight">\(k\)</span> gives a coefficient of -1. So, even sized subsets are
-assigned 1. Meanwhile, odd subsets are assigned -1. Consider
-“toggling” the element 1 in a subset. That is, if 1 is in the
-subset, remove it. If not, add it. Then, the parity of the subset
-will change (even to odd or odd to even) and so the assignment (1 to
--1 or -1 to 1). So, this operation is sign-reversing. Removing 1
-then including 1 will result in the same subset. Likewise with
-including 1 and then removing it again. So, this operation is an
-involution.</p></li>
-<li><p>: If a subset has 1 in it and we remove it, we obtain a subset of
-opposite parity. Otherwise, the subset does not have 1 and we add it
-to obtain a subset of opposite parity. So, each subset is paired up
-and we have no exceptions.</p></li>
-<li><p>: We have paired up each odd sized subsets of <span class="math notranslate nohighlight">\(\{1,2,\dots,n\}\)</span> with
-even sized subsets of <span class="math notranslate nohighlight">\(\{1,2,\dots, n\}\)</span> via a sign reversing
-involution with no exceptions. So, $<span class="math notranslate nohighlight">\(\begin{aligned}
-\sum_{k=0}^n(-1)^k\binom{n}{k}=0
-\end{aligned}\)</span>$</p></li>
-</ol>
-<p>Pretty clever! Hopefully by now you have some idea for what a
-“sign-reversing involution” does. Formally, this is what we are after:</p>
-<p>\hfill
-A function <span class="math notranslate nohighlight">\(f:A\to B\)</span> is an <em>involution</em> if <span class="math notranslate nohighlight">\(f(f(a))=a\)</span> for all
-<span class="math notranslate nohighlight">\(a\in A\)</span>. The involution <span class="math notranslate nohighlight">\(f\)</span> is then <em>sign-reversing</em> if <span class="math notranslate nohighlight">\(f(a)\)</span> and <span class="math notranslate nohighlight">\(a\)</span>
-differ in sign for all <span class="math notranslate nohighlight">\(a\in A\)</span>.</p>
+</div><blockquote>
+<div><p><strong>Answer-ish:</strong></p>
+<ul class="simple">
+<li><p>Plugging in <span class="math notranslate nohighlight">\(a_0=0\)</span> to obtain <span class="math notranslate nohighlight">\(a_1\)</span>, we get <span class="math notranslate nohighlight">\(a_1=2(0)+1=1\)</span>. We then use this to obtain <span class="math notranslate nohighlight">\(a_2\)</span>. We get <span class="math notranslate nohighlight">\(a_2=2(1)+1=3\)</span>. Repeating this process we get <span class="math notranslate nohighlight">\(7\)</span> then <span class="math notranslate nohighlight">\(15\)</span> then <span class="math notranslate nohighlight">\(31\)</span> and so on. The sequence we get looks something <span class="math notranslate nohighlight">\(\{1,3,7,15,31,63,127,\dots\}\)</span>. You may notice these are almost powers of 2… any conjectures for <span class="math notranslate nohighlight">\(f(n)\)</span>?</p></li>
+<li><p>Plugging in similar to before, we get <span class="math notranslate nohighlight">\(\{0,1,1,2,3,5,8,\dots\}\)</span> the famous sequence we’ve been calling the “Fibonacci Sequence”. What would <span class="math notranslate nohighlight">\(f(n)\)</span> look like?</p></li>
+<li><p>A rather boring sequence, we get <span class="math notranslate nohighlight">\(\{1,1,1,1,\dots\}\)</span>. A simple formula for <span class="math notranslate nohighlight">\(f(n)\)</span>: <span class="math notranslate nohighlight">\(f(n)=1\)</span>.</p></li>
+</ul>
+</div></blockquote>
+<p>But, how can we find <span class="math notranslate nohighlight">\(f(n)\)</span> in general? That is the topic of this section.</p>
+</section>
+<section id="recurrence-relations">
+<h2>Recurrence Relations<a class="headerlink" href="#recurrence-relations" title="Link to this heading">#</a></h2>
+<p>The mathematical object we have just interacted with is what we call a <em>recurrence relation</em>. Firstly, note the relationship from the warmup problem:</p>
+<div class="math notranslate nohighlight">
+\[a_{n+1}=3a_n-1\]</div>
+<p>This by itself does not generate a sequence. Notice in our warmup, we were given some known values. After we had these known values and a relationship for future values, we were able to generate a sequence. These are necessary to determine a sequence (otherwise why do we use them to count??).</p>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 18 </span> (Recurrence Relation)</p>
+<section class="definition-content" id="proof-content">
+<p>An equation relating the <span class="math notranslate nohighlight">\(n\)</span>-th term in a sequence as a combination of the previous terms is called a <em>recurrence relation</em>. The given first element (multiple elements) is called the initial value (values).</p>
+</section>
+</div><p>Once we have some initial values, the rest of the sequence is generated <em>uniquely</em>. That is, the recurrence relation</p>
+<div class="math notranslate nohighlight">
+\[a_{n+1}=3a_n-1 \text{ where } a_0=2\]</div>
+<p>is determined uniquely!</p>
+<p>So, how do we find the function <span class="math notranslate nohighlight">\(a_n=f(n)\)</span>? Though we may able to guess at what this function may be, we need a mathematically rigorous way to determine <span class="math notranslate nohighlight">\(f(n)\)</span>. What we will do is use a new type of machinery: <em>generating functions</em>. Recall the following:</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Geometric Series)</p>
+<section class="definition-content" id="proof-content">
+<p>The <em>geometric series</em> <span class="math notranslate nohighlight">\(\sum\limits_{k=0}^{\infty}x^k\)</span> converges to <span class="math notranslate nohighlight">\(\frac{1}{1-x}\)</span> when <span class="math notranslate nohighlight">\(|x|&lt;1\)</span>. That is, if <span class="math notranslate nohighlight">\(|x|&lt;1\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+\sum_{k=0}^{\infty}x^k=\frac{1}{1-x}\end{aligned}\]</div>
+</section>
+</div><p>Under this assumption <span class="math notranslate nohighlight">\(|x|&lt;1\)</span>, we can find a simple, closed formula for an infinite sum. We will implicitly assume this is satisfied for the series we write. If we pretend we had <span class="math notranslate nohighlight">\((cx)^k\)</span> instead of <span class="math notranslate nohighlight">\(x^k\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>, we will implicitly assume <span class="math notranslate nohighlight">\(|cx|&lt;1\)</span> so that we get a nice
+formula for the infinite series.</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Ordinary Generating Function)</p>
+<section class="definition-content" id="proof-content">
+<p>The <em>ordinary generating function</em> (OGF) of some sequence <span class="math notranslate nohighlight">\(\{a_0,a_1,a_2,a_3,a_4,\dots\}\)</span> is the <em>power series</em> of the form</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+A(x)&amp;=\sum_{k=0}^{\infty}a_kx^k
+\end{align}\]</div>
+</section>
+</div><div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 14 </span> (Properties of OGFs)</p>
+<section class="theorem-content" id="proof-content">
+<p>Let the OGFs of <span class="math notranslate nohighlight">\(\{a_0,a_1,a_2,a_3,a_4,\dots\}\)</span> and <span class="math notranslate nohighlight">\(\{b_0,b_1,b_2,b_3,b_4,\dots\}\)</span> be <span class="math notranslate nohighlight">\(A(x)\)</span> and <span class="math notranslate nohighlight">\(B(x)\)</span> respectively. Also, let <span class="math notranslate nohighlight">\(c\)</span> be some scalar. Then,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A(x)+B(x)\)</span> generates <span class="math notranslate nohighlight">\(\{a_0+b_0,a_1+b_1,a_2+b_2,a_3+b_3,a_4+b_4,\dots\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c A(x)\)</span> generates <span class="math notranslate nohighlight">\(\{c\cdot a_0,c\cdot a_1,c\cdot a_2,c\cdot a_3,c\cdot a_4,\dots\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x^kA(x)\)</span> generates <span class="math notranslate nohighlight">\(\{\underbrace{0,0,\dots,0}_{k~zeroes},a_0,a_1,a_2,a_3,a_4,\dots\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{d}{dx}(A(x))=A'(x)\)</span> generates <span class="math notranslate nohighlight">\(\{a_1,2a_2,3a_3,4a_4,5a_5,\dots\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A(x)\cdot B(x)\)</span> generates <span class="math notranslate nohighlight">\(\{c_0,c_1,c_2,c_3,c_4,\dots\}\)</span> is where <span class="math notranslate nohighlight">\(c_n=a_0b_n+a_1b_{n-1}+a_2b_{n-2}+\cdots+a_nb_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{A(x)}{1-x}\)</span> generates <span class="math notranslate nohighlight">\(\{s_0,s_1,s_2,s_3,s_4,\dots\}\)</span> where <span class="math notranslate nohighlight">\(s_n=\sum\limits_{k=0}^na_k\)</span></p></li>
+</ul>
+</section>
+</div><div class="proof theorem admonition" id="theorem-5">
+<p class="admonition-title"><span class="caption-number">Theorem 15 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Consider <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span>. Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+q_1(x)&amp;= \frac{-b+\sqrt{b^2-4ac}}{2x}\\
+q_2(x)&amp;= \frac{-b-\sqrt{b^2-4ac}}{2x}\\
+\end{align}\end{split}\]</div>
+<p>Then, we can factor <span class="math notranslate nohighlight">\(ax^2+bx+c\)</span> in the following
+ways</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+ax^2+bx+c&amp;= a(x-q_1(a))(x-q_2(a))\\
+&amp;=c(1-q_1(c)x)(1-q_2(c)x)
+\end{align}\end{split}\]</div>
+</section>
+</div><div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Formula</p></th>
+<th class="head text-center"><p>Series</p></th>
+<th class="head text-center"><p>Sequence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{1}{1-x}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\sum\limits_{k=0}^{\infty}x^k\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\{1,1,1,\dots\}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{c}{1-bx}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\sum\limits_{k=0}^{\infty}cb^kx^k\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\{c\cdot b^0,c\cdot b^1, c\cdot b^2,\dots\}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{1-x^n}{1-x}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\sum\limits_{k=0}^{n-1}x^k\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\{\underbrace{1,1,1,\dots,1}_{n~ones}, 0,0, \dots\}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{x^n}{1-x}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\sum\limits_{k=n}^{\infty}x^k\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\{\underbrace{0,0,\dots,0}_{n~zeroes},1,1,1,\dots\}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{d}{dx}\left(\frac{1}{1-x}\right)\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\sum\limits_{k=1}^{\infty}kx^{k-1}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\{1,2,3,4,\dots\}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 
@@ -514,6 +488,24 @@ differ in sign for all <span class="math notranslate nohighlight">\(a\in A\)</sp
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="chapter8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 8: Graphs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="chapter10.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 10: P.I.E. &amp; D.I.E.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -532,8 +524,8 @@ differ in sign for all <span class="math notranslate nohighlight">\(a\in A\)</sp
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-of-inclusion-exclusion">Principle of Inclusion-Exclusion</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-i-e-method">D.I.E. Method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warmups">Warmups</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relations">Recurrence Relations</a></li>
 </ul>
   </nav></div>
 
