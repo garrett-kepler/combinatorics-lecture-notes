@@ -4,9 +4,12 @@ root: intro
 chapters:
   - file: content/chapter1
   - file: content/chapter2
-  - file: content/week3
-  - file: content/week4
-  - file: content/week5
-  - file: content/week6
-  - file: content/week7-9
-  - file: content/week11-13
+  - file: content/chapter3
+  - file: content/chapter4
+  - file: content/chapter5
+  - file: content/chapter6
+  - file: content/chapter7
+  - file: content/chapter8
+  - file: content/chapter9
+  - file: content/chapter10
+  - file: content/chapter11
