@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -349,7 +350,17 @@
 <h1>Chapter 3: Introduction to Counting Techniques<a class="headerlink" href="#chapter-3-introduction-to-counting-techniques" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<p>This may seem immediately obvious to some, but this highlights key
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 3 </span></p>
+<section class="question-content" id="proof-content">
+<p>Physics 533 and Math 325 occur at the same time (12:10-1PM MWF). Phys
+533 has 5 people enrolled while Math 325 has 21.</p>
+<ol class="arabic simple">
+<li><p>How many people are in Math 325 or Physics 533 from 12:10-1 MWF?</p></li>
+<li><p>How many people are in Math 325 and Physics 533 from 12:10-1 MWF?</p></li>
+</ol>
+</section>
+</div><p>This may seem immediately obvious to some, but this highlights key
 counting principles used in combinatorics.</p>
 <blockquote>
 <div><p><strong>Answer:</strong></p>
@@ -365,7 +376,13 @@ separate from the set of students in 533. If we use set theoretic
 language, the set of students in 325 is <em>disjoint</em> from the set of
 students in 533. More on this later.<br />
 For now, consider yet another problem:</p>
-<p>You might note that my first roll <em>does not affect</em> my second roll. They
+<div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 4 </span></p>
+<section class="question-content" id="proof-content">
+<p>How many ways are there to flip a coin then a six sided dice? More
+generally, rolling an <span class="math notranslate nohighlight">\(m\)</span> sided dice then an <span class="math notranslate nohighlight">\(n\)</span> sided dice?</p>
+</section>
+</div><p>You might note that my first roll <em>does not affect</em> my second roll. They
 are independent! Intuitively, if I roll heads, I have the opportunity to
 roll 1-6 on the dice. Likewise if roll tails. As such:</p>
 <blockquote>
@@ -379,7 +396,24 @@ dice.</p>
 </section>
 <section id="more-set-theory">
 <h2>More Set Theory<a class="headerlink" href="#more-set-theory" title="Link to this heading">#</a></h2>
-<p>We can think of the set complement <span class="math notranslate nohighlight">\(S\setminus A\)</span> as considering all the
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Subset)</p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(B\)</span> be some set. Another set <span class="math notranslate nohighlight">\(A\)</span> is a <em>subset</em> of <span class="math notranslate nohighlight">\(B\)</span> if every
+element of <span class="math notranslate nohighlight">\(A\)</span> is an element of <span class="math notranslate nohighlight">\(B\)</span> (for every <span class="math notranslate nohighlight">\(a\in A\)</span>, <span class="math notranslate nohighlight">\(a\in B\)</span>). We
+denote this relationship by <span class="math notranslate nohighlight">\(A\subseteq B\)</span> if <span class="math notranslate nohighlight">\(A\)</span> could equal <span class="math notranslate nohighlight">\(B\)</span>
+itself. If <span class="math notranslate nohighlight">\(A\)</span> cannot equal <span class="math notranslate nohighlight">\(B\)</span>, we write <span class="math notranslate nohighlight">\(A\subset B\)</span>.</p>
+</section>
+</div><div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Set Complement)</p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(A\subseteq S\)</span>. The <em>complement</em> of <span class="math notranslate nohighlight">\(A\)</span> with respect to <span class="math notranslate nohighlight">\(S\)</span>,
+<span class="math notranslate nohighlight">\(A^C=S\setminus A\)</span>, is the set of elements in <span class="math notranslate nohighlight">\(S\)</span> that are not in <span class="math notranslate nohighlight">\(A\)</span>
+(<span class="math notranslate nohighlight">\(A^C=\{s\in S|s\notin A\}\)</span>). The complement of <span class="math notranslate nohighlight">\(S\)</span> with respect to
+itself, <span class="math notranslate nohighlight">\(S^C=S\setminus S\)</span>, is the set with zero elements,
+<span class="math notranslate nohighlight">\(\emptyset=\{\}\)</span>.</p>
+</section>
+</div><p>We can think of the set complement <span class="math notranslate nohighlight">\(S\setminus A\)</span> as considering all the
 elements of <span class="math notranslate nohighlight">\(S\)</span> that are not in <span class="math notranslate nohighlight">\(A\)</span>. If there are no such elements (i.e.
 <span class="math notranslate nohighlight">\(A\nsubseteq S\)</span>), <span class="math notranslate nohighlight">\(S\setminus A\)</span> is <span class="math notranslate nohighlight">\(\emptyset\)</span>. For example, let <span class="math notranslate nohighlight">\(A=\{\)</span>integers between 28 and 352 divisible by 3<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(S=\{\)</span>integers between 28 and 352 inclusive<span class="math notranslate nohighlight">\(\}\)</span>. Then:</p>
 <ul class="simple">
@@ -389,7 +423,13 @@ elements of <span class="math notranslate nohighlight">\(S\)</span> that are not
 <p>Note that the choice of <span class="math notranslate nohighlight">\(S\)</span> is important. If <span class="math notranslate nohighlight">\(S=\mathbb{Z}\)</span> (the set of all integers), then <span class="math notranslate nohighlight">\(A^C\)</span> in the previous example would become the set of
 <em>all</em> integers excluding only integers between 28 and 352 that are
 divisible by 3.</p>
-<blockquote>
+<div class="proof question admonition" id="question-4">
+<p class="admonition-title"><span class="caption-number">Question 5 </span></p>
+<section class="question-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(A\subseteq S\)</span>. Is the function <span class="math notranslate nohighlight">\(f(A)=A^C\)</span> a bijection? If so, what
+is <span class="math notranslate nohighlight">\(f^{-1}\)</span>?</p>
+</section>
+</div><blockquote>
 <div><p><strong>Answer:</strong>
 <span class="math notranslate nohighlight">\(f\)</span> assigns subset <span class="math notranslate nohighlight">\(A\)</span> to its complement <span class="math notranslate nohighlight">\(A^C=S\setminus A\)</span>. Let us say <span class="math notranslate nohighlight">\(f(A)=A^C=B\)</span>.</p>
 <ul class="simple">
@@ -413,22 +453,78 @@ subsets, <span class="math notranslate nohighlight">\(A\)</span>, is the same si
 subsets, <span class="math notranslate nohighlight">\(B\)</span>. That is, <span class="math notranslate nohighlight">\(|A|=|B|\)</span>.</p></li>
 </ul>
 <p>We will talk about what the actual sizes <span class="math notranslate nohighlight">\(|A|\)</span> and <span class="math notranslate nohighlight">\(|B|\)</span> later.</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 7 </span> (Union)</p>
+<section class="definition-content" id="proof-content">
+<p>The <em>union</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, denoted <span class="math notranslate nohighlight">\(A\cup B\)</span>, is the set of
+all elements in <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(B\)</span> (<span class="math notranslate nohighlight">\(A\cup B=\{x|x\in A\)</span> or <span class="math notranslate nohighlight">\(x\in B\)</span>}).</p>
 </section>
+</div><div class="proof definition admonition" id="definition-6">
+<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Intersection &amp; Disjointness)</p>
+<section class="definition-content" id="proof-content">
+<p>The <em>intersection</em> of two sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, denoted <span class="math notranslate nohighlight">\(A\cap B\)</span>, is the
+set of all elements in <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> (<span class="math notranslate nohighlight">\(A\cap B=\{x|x\in A\)</span> and <span class="math notranslate nohighlight">\(x\in B\)</span>}). If the intersection between sets <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> is empty, denoted
+<span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>, we say <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <em>disjoint</em>.</p>
+</section>
+</div><div class="proof example admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
+<section class="example-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(A=\{\)</span>the set of students in Math 325<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(B=\{\)</span>the set of
+students in Physics 533<span class="math notranslate nohighlight">\(\}\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\cup B=\{\)</span>the set of students in either couse<span class="math notranslate nohighlight">\(\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span> since now student is in both classes</p></li>
+</ul>
+</section>
+</div></section>
 <section id="addition-multiplication-principle">
 <h2>Addition &amp; Multiplication Principle<a class="headerlink" href="#addition-multiplication-principle" title="Link to this heading">#</a></h2>
 <p>Thinking back to the initial problem of this chapter
-<span class="xref std std-ref">chapter3warmup</span>, we could simply add the number of people in 325
+<code class="xref prf prf-ref docutils literal notranslate"><span class="pre">chapter3warmup</span></code>, we could simply add the number of people in 325
 and 533 to get the total number <em>since no student is in both classes</em>.
 This principle of complete separation allowing simple addition can be
 formalized:</p>
-<p>Let <span class="math notranslate nohighlight">\(A\times B\)</span> be the set of ordered pairs <span class="math notranslate nohighlight">\((a,b)\)</span> where <span class="math notranslate nohighlight">\(a\in A\)</span> and
+<div class="proof theorem admonition" id="theorem-8">
+<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(A\cap B=\emptyset\)</span>, <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>.<br />
+More generally, if <span class="math notranslate nohighlight">\(A_i\cap A_j=\emptyset\)</span> for all <span class="math notranslate nohighlight">\(i\neq j\)</span> and
+<span class="math notranslate nohighlight">\(1\leq i,j\leq n\)</span>, then
+<span class="math notranslate nohighlight">\(|A_1\cup A_2\cup \cdots \cup A_n|=|A_1|+|A_2|+\cdots +|A_n|\)</span>.</p>
+</section>
+</div><p>Let <span class="math notranslate nohighlight">\(A\times B\)</span> be the set of ordered pairs <span class="math notranslate nohighlight">\((a,b)\)</span> where <span class="math notranslate nohighlight">\(a\in A\)</span> and
 <span class="math notranslate nohighlight">\(b\in B\)</span>.</p>
-<section id="in-dependence">
+<div class="proof theorem admonition" id="theorem-9">
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(S=A\times B\)</span>. Then, <span class="math notranslate nohighlight">\(|S|=|A\times B|=|A|\cdot|B|\)</span>.<br />
+More generally, let <span class="math notranslate nohighlight">\(S=A_1\times A_2\times \cdots \times A_n\)</span>. Then,
+<span class="math notranslate nohighlight">\(|S|=|A_1\times A_2\times \cdots \times A_n|=|A_1||A_2|\cdots|A_n|\)</span></p>
+</section>
+</div><div class="proof example admonition" id="example-10">
+<p class="admonition-title"><span class="caption-number">Example 3 </span></p>
+<section class="example-content" id="proof-content">
+<p>From warmup problem 2, let <span class="math notranslate nohighlight">\(A=\{H,T\}\)</span> be the results from flipping a
+coin and <span class="math notranslate nohighlight">\(B=\{1,2,3,4,5,6\}\)</span> be the results from rolling the six-sided
+dice. Then,</p>
+<div class="math notranslate nohighlight">
+\[A\times B=\{(H,1),(H,2),(H,3),\dots,(T,5),(T,6)\}\]</div>
+<p>and <span class="math notranslate nohighlight">\(|S|=|A\times B|=|A||B|=2\cdot 6=12\)</span>.</p>
+</section>
+</div><section id="in-dependence">
 <h3>(In)dependence<a class="headerlink" href="#in-dependence" title="Link to this heading">#</a></h3>
 <p>Note that the <em>independence</em> of warmup problem 2 is important. Flipping
 a coin <em>has no impact</em> on the rolling of the dice. Consider a different
 problem:</p>
-<blockquote>
+<div class="proof question admonition" id="question-11">
+<p class="admonition-title"><span class="caption-number">Question 6 </span></p>
+<section class="question-content" id="proof-content">
+<p>There are four orbs labelled <span class="math notranslate nohighlight">\(A,B,C,D\)</span> in an urn. You will draw from the
+urn four times. For each draw, you take a single orb out, write down its
+label, and replace it in the urn. How many possible label sequences
+could you write down?</p>
+</section>
+</div><blockquote>
 <div><p><strong>Answer:</strong></p>
 <ul class="simple">
 <li><p>Let <span class="math notranslate nohighlight">\(A_1, A_2, A_3,\)</span> and <span class="math notranslate nohighlight">\(A_4\)</span> be the sets of possible draws on draw 1, 2, 3, and 4 respectively and <span class="math notranslate nohighlight">\(S\)</span> be the set of possible label sequences you could write down.</p></li>
@@ -439,7 +535,17 @@ problem:</p>
 </ul>
 </div></blockquote>
 <p>Consider a small change to your process:</p>
-<blockquote>
+<div class="proof question admonition" id="question-12">
+<p class="admonition-title"><span class="caption-number">Question 7 </span></p>
+<section class="question-content" id="proof-content">
+<p>You really like writing down labels, so you continue with your setup
+from the previous problem. However, this time instead of replacing the
+orb after drawing it, you set it to the side. You then draw another orb
+and set it next to the previously drawn orb. You repeat this process
+until there are no orbs left. Then, you write down the sequence of
+labels you see. How many possible label sequences could you see?</p>
+</section>
+</div><blockquote>
 <div><p><strong>Answer:</strong></p>
 <ul class="simple">
 <li><p>Let <span class="math notranslate nohighlight">\(B_1, B_2, B_3,\)</span> and <span class="math notranslate nohighlight">\(B_4\)</span> be the sets of possible draws on draw
@@ -464,7 +570,19 @@ then <span class="math notranslate nohighlight">\(C\)</span> then <span class="m
 you remove the ability to have repeats. As such, you remove every
 element in <span class="math notranslate nohighlight">\(S\)</span> that has any repeat labels to obtain a new set <span class="math notranslate nohighlight">\(T\)</span>, the
 set of label sequences with <em>distinct</em> labels.</p>
+<div class="proof question admonition" id="question-13">
+<p class="admonition-title"><span class="caption-number">Question 8 </span> (To Ponder)</p>
+<section class="question-content" id="proof-content">
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(S\)</span> and <span class="math notranslate nohighlight">\(T\)</span> be defined as in the above problem. What is
+<span class="math notranslate nohighlight">\(T^C=S\setminus T\)</span>? How big is <span class="math notranslate nohighlight">\(T^C\)</span> in this case?</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(S\)</span> be defined as in the above problem. How many label sequences
+have only 2 repeats? i.e. sequences like <span class="math notranslate nohighlight">\((A,A,B,C)\)</span> or <span class="math notranslate nohighlight">\((D,A,C,D)\)</span>.</p></li>
+<li><p>Consider drawing <span class="math notranslate nohighlight">\(n\)</span> labelled orbs from an urn with replacement. How
+many ways can you do this? Without replacement?</p></li>
+</ul>
 </section>
+</div></section>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>

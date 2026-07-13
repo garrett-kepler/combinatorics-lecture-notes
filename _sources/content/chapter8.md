@@ -19,37 +19,44 @@ title: 'Lecture Notes on Combinatorics: Draft'
 ````
 
 ## Graphs
-One fundamental combinatorial object we study in combinatorics is the *graph*. You may have already seen these. For example, see Figure
-[\[fig:network\]](#fig:network){reference-type="ref"
-reference="fig:network"}. We will formalize the idea in this section.
+One fundamental combinatorial object we study in combinatorics is the *graph*. You may have already seen these. For example, in the network of the internet:
+```{figure} ../content/photos/internet.png
+---
+height: 350px
+---
+From Wikipedia, at this page: [here](https://en.wikipedia.org/wiki/Computer_network)
+```
 
-![Examples of graphs. On the left, a network of the internet. On the right, a graph corresponding to a molecule. Courtesy of
-[https://en.wikipedia.org/wiki/Computernetwork](https://en.wikipedia.org/wiki/Computer_network)
-and <https://en.wikipedia.org/wiki/Molecule>
-respectively.[]{label="fig:network"}](math 325/book/content/photos/Internet_map_1024.png "fig:"){#fig:network
-height="0.2\textheight"} ![Examples of graphs. On the left, a network of the internet. On the right, a graph corresponding to a molecule.
-Courtesy of
-[https://en.wikipedia.org/wiki/Computernetwork](https://en.wikipedia.org/wiki/Computer_network)
-and <https://en.wikipedia.org/wiki/Molecule>
-respectively.[]{label="fig:network"}](math 325/book/content/photos/TOAT_AFM.png "fig:"){#fig:network
-height=".2\textheight"}
+Or perhaps in a molecule:
+
+```{figure} ../content/photos/molecule.png
+---
+height: 250px
+---
+From Britannica, at this page: [here](https://www.britannica.com/science/molecule)
+```
+These structures that consist of some set of objects and a relationship among them is what we will introduce in this section.
 
 ````{prf:definition} Graph
 A *graph* $G=(V,E)$ is a collection of vertices $V$ and edges $E$ where $E$ is a set of pairs of vertices.
 ````
 
-We can synonymously call vertices and edges nodes and arcs, but I will try to remain consistent with the former. We typically assume $E$ is a set of edges defined over $V$. Otherwise, this object would indeed be hard to interpret. Consider the following graphs.
+We can synonymously call vertices and edges nodes and arcs, but I will try to remain consistent with the former. We typically assume $E$ is a set of edges defined over $V$. Otherwise, this object would indeed be hard to interpret. 
 
-````{prf:example}
-Let $G=(\{1,2,3\},\{(1,2),(2,3)\}$. Then, we can visualize $G$ as 
-
-$$visualization here$$
+As a first example of a graph, let $G=(\{1,2,3\},\{(1,2),(2,3)\}$. Then, we can visualize $G$ as 
+```{image} ../content/photos/graph1.png
+:width: 350px
+:align: center
+```
 
 Notice, if we remove $(2,3)$, we end up with a different, yet similar
 graph $H=(\{1,2,3\},\{(1,2)\}$
-$$visualization here$$
 
-````
+```{image} ../content/photos/graph2.png
+:width: 350px
+:align: center
+```
+
 
 Note that in drawing these graphs, we have an ordered pair $(x,y)$ telling us our edge begins at $x$ and ends at $y$. As such, we have an arrow indicating the starting node and ending node for each edge. A graph where this *direction* is important we call a *directed graph*. If instead, order does not matter, we have an *undirected graph*.
 
@@ -59,23 +66,38 @@ A graph $G=(V,E)$ is *directed* when $E$ consists of *ordered pairs* of vertices
 
 Consider the graph from before, $G=(\{1,2,3\},\{(1,2),(2,3)\}$.
 
-$$visualization here$$ 
+```{image} ../content/photos/graph1.png
+:width: 350px
+:align: center
+```
 
 We can form an undirected analogue, $H=(\{1,2,3\},\{\{1,2\},\{2,3\}\}$.
 
-$$visualization here$$ 
+```{image} ../content/photos/graph3.png
+:width: 350px
+:align: center
+```
 
 Note, we do not require that the vertices in an edge be distinct. That is, we could have a *self-loop* $(x,x)$ for some $x\in V$.
 
-$$visualization here$$ 
+```{image} ../content/photos/graph4.png
+:width: 350px
+:align: center
+```
 
 We also do not require that there is only one edge between a pair of nodes.
 
-$$visualization here$$ 
+```{image} ../content/photos/graph5.png
+:width: 350px
+:align: center
+```
 
 We can even weight edges!
 
-$$visualization here$$ 
+```{image} ../content/photos/graph6.png
+:width: 350px
+:align: center
+```
 
 These objects can be very complicated indeed. As such, we can further restrict our graphs to what we call *simple*.
 ````{prf:definition} Simple
@@ -94,16 +116,22 @@ How many simple, undirected graphs in general are there on $n$ nodes?
 
 Okay, $2^{\binom{n}{2}}$ in general. But, consider the two following graphs.
 
-$$visualization here$$ 
+```{image} ../content/photos/graph7.png
+:width: 350px
+:align: center
+```
 
-Intuitively, these are representatives of the same structure. One could say these are the same graph with different labels. This idea is what we call *isomorphic graphs*. The question of "How many simple *non-isomorphic* graphs are there on $n$ nodes?" is a much more difficult question to answer. See here for more: $$link here$$. 
+Intuitively, these are representatives of the same structure. One could say these are the same graph with different labels. This idea is what we call *isomorphic graphs*. The question of "How many simple *non-isomorphic* graphs are there on $n$ nodes?" is a much more difficult question to answer. See here for more: [Pólya](https://en.wikipedia.org/wiki/P%C3%B3lya_enumeration_theorem). 
 
 There are many features of graphs we care about. One particular example is the number of edges each node is represented in.
 ````{prf:definition} Degree
 The number of edges incident with a node $v$ is the *degree* of $v$ denoted $d(v)$.
 ````
 For the following graph, the degree of each node is: $d(1)=1$, $d(2)=2$, and $d(3)=1$.
-
+```{image} ../content/photos/graph3.png
+:width: 350px
+:align: center
+```
 ````{prf:theorem} Handshaking Lemma
 Let $G=(V,E)$. Then, 
 

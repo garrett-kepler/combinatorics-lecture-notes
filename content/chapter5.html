@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -345,7 +346,16 @@
 <h1>Chapter 5: Pigeonhole Principle<a class="headerlink" href="#chapter-5-pigeonhole-principle" title="Link to this heading">#</a></h1>
 <section id="warmup">
 <h2>Warmup<a class="headerlink" href="#warmup" title="Link to this heading">#</a></h2>
-<blockquote>
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 13 </span></p>
+<section class="question-content" id="proof-content">
+<p>There are <span class="math notranslate nohighlight">\(n\)</span> married couples waiting at tables around a dance floor.</p>
+<ol class="arabic simple">
+<li><p>Pairing the <span class="math notranslate nohighlight">\(2n\)</span> people up to dance, how many ways are there to select a pair of dance partners?</p></li>
+<li><p>How many people must be on the dance floor to guarantee a married couple is somewhere on the dance floor?</p></li>
+</ol>
+</section>
+</div><blockquote>
 <div><p><strong>Answer:</strong></p>
 <ol class="arabic simple">
 <li><p>This is a case where we would like to use our new notion of combination:</p>
@@ -364,8 +374,45 @@
 </ol>
 </div></blockquote>
 <p>This is what we call the <em>pigeonhole principle</em>. It is an incredible powerful tool:</p>
-<p>We can also exploit a more general case of the pigeonhole principle when we have potentially more than <span class="math notranslate nohighlight">\(n+1\)</span> objects:</p>
-<p>What both the simple form and strong form of the pigeonhole principle say in plain english is: <em><strong>distributing too many objects into too few boxes forces overlaps</strong></em>.</p>
+<div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 8 </span> (Pigeonhole Principle: <em>Simple Form</em>)</p>
+<section class="theorem-content" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(n+1\)</span> objects are distributed into <span class="math notranslate nohighlight">\(n\)</span> boxes, then at least one box
+contains two or more objects.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. If each of the <span class="math notranslate nohighlight">\(n\)</span> boxes has at most one object, then the total number of objects is at most <span class="math notranslate nohighlight">\(1+1+1+\cdots+1=n\)</span>. There is one object not counted. So, there is at least one box with two or more objects.</p>
+</div>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 5 </span></p>
+<section class="example-content" id="proof-content">
+<p>Out of Garrett, the Dalai Lama, and Lionel Messi, there are at least two people either inside Garrett’s office or outside of Garrett’s office.</p>
+</section>
+</div><p>We can also exploit a more general case of the pigeonhole principle when we have potentially more than <span class="math notranslate nohighlight">\(n+1\)</span> objects:</p>
+<div class="proof theorem admonition" id="theorem-3">
+<p class="admonition-title"><span class="caption-number">Theorem 9 </span> (Pigeonhole Principle (Strong Form))</p>
+<section class="theorem-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(q_1,q_2,\dots,q_n\)</span> be positive integers. If</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+q_1+q_2+q_3+\cdots+q_n-n+1
+\end{align}\]</div>
+<p>objects are distributed into <span class="math notranslate nohighlight">\(n\)</span> boxes, then either the 1st box contains at least <span class="math notranslate nohighlight">\(q_1\)</span> objects or the 2nd box contains at least <span class="math notranslate nohighlight">\(q_2\)</span> objects,<span class="math notranslate nohighlight">\(\dots\)</span>, or the <span class="math notranslate nohighlight">\(n\)</span>th box contains at least <span class="math notranslate nohighlight">\(q_n\)</span> objects.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Distribute the <span class="math notranslate nohighlight">\(q_1+q_2+q_3+\cdots+q_n-n+1\)</span> objects into <span class="math notranslate nohighlight">\(n\)</span> boxes. If each <span class="math notranslate nohighlight">\(i\)</span>th box contains at most <span class="math notranslate nohighlight">\(q_i\)</span> objects, then the number of objects in boxes is at most</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+(q_1-1)+(q_2-1)+\cdots+(q_n-1)&amp;=q_1+q_2+\cdots+q_n-n
+\end{align}\]</div>
+<p>There is an object not counted. So, we can say there is at least one box <span class="math notranslate nohighlight">\(i\)</span> with <span class="math notranslate nohighlight">\(q_i\)</span> or more objects.</p>
+</div>
+<div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 6 </span></p>
+<section class="example-content" id="proof-content">
+<p>Out of the 21 students in a class, there are 3 whose birthday lie on the same day of the week.</p>
+</section>
+</div><p>What both the simple form and strong form of the pigeonhole principle say in plain english is: <em><strong>distributing too many objects into too few boxes forces overlaps</strong></em>.</p>
 </section>
 <section id="the-2nd-e-existence">
 <h2>The 2nd E: Existence<a class="headerlink" href="#the-2nd-e-existence" title="Link to this heading">#</a></h2>
@@ -378,42 +425,40 @@
 </ul>
 <p>We have been covering how to answer questions of enumeration. The pigeonhole principle is our first technique to answer questions of existence!<br />
 For example, we can answer the following existence question using the pigeonhole principle:</p>
+<div class="proof question admonition" id="question-5">
+<p class="admonition-title"><span class="caption-number">Question 14 </span></p>
+<section class="question-content" id="proof-content">
+<p>Consider choosing 101 integers from <span class="math notranslate nohighlight">\(S=\{1,2,3,4,\dots, 200\}\)</span>. Show that there are two chosen integers such that one divides the other. Hint: try factoring out as many 2’s as possible from each term in <span class="math notranslate nohighlight">\(S\)</span>.</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Each number in <span class="math notranslate nohighlight">\(S=\{1,2,3,4,\dots, 200\}\)</span> is either even or odd. Consider writing each integer <span class="math notranslate nohighlight">\(s\in S\)</span> as <span class="math notranslate nohighlight">\(s=2^k\cdot t\)</span> where <span class="math notranslate nohighlight">\(t\)</span> is odd and <span class="math notranslate nohighlight">\(k\geq 0\)</span>. Each <span class="math notranslate nohighlight">\(t\)</span> comes from the set <span class="math notranslate nohighlight">\(T=\{1,3,5,\dots, 199\}\)</span> of size 100. By picking 101 integers from <span class="math notranslate nohighlight">\(S\)</span>, we are also picking 101 odd factors from <span class="math notranslate nohighlight">\(T\)</span>. Since 101=100+1 factors are chosen from 100 factors, by the pigeonhole principle, there are two integers chosen from <span class="math notranslate nohighlight">\(S\)</span> that share a factor from <span class="math notranslate nohighlight">\(T\)</span>. That is, from the chosen integers of <span class="math notranslate nohighlight">\(S\)</span>, there are two, say <span class="math notranslate nohighlight">\(s_1\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span>, such that <span class="math notranslate nohighlight">\(s_1=2^m\cdot t\)</span> and <span class="math notranslate nohighlight">\(s_2=2^n\cdot t\)</span>. Either <span class="math notranslate nohighlight">\(m&gt;n\)</span> and <span class="math notranslate nohighlight">\(s_2\)</span> divides <span class="math notranslate nohighlight">\(s_1\)</span> or <span class="math notranslate nohighlight">\(n&gt;m\)</span> and <span class="math notranslate nohighlight">\(s_1\)</span> divides <span class="math notranslate nohighlight">\(s_2\)</span>. As such, there are two integers such that one divides the other.</p>
+</div>
 <p>This problem exemplifies why the pigeonhole principle is so useful:</p>
 <ul class="simple">
 <li><p>How many ways are there to select 101 integers from <span class="math notranslate nohighlight">\(S=\{1,2,3,\dots, 200\}\)</span>? <span class="math notranslate nohighlight">\(C(200,101)=\binom{200}{101}&gt;10^{57}\)</span>.</p></li>
 <li><p>This is an insanely large number. More than the number of atoms in 1 million Earths (Earth is about <span class="math notranslate nohighlight">\(\approx 10^{51}\)</span> atoms).</p></li>
 <li><p>But, without going through every single possible subset choice, we know something about <em>every single one of these choices</em>. Namely, that there must be two numbers in each such that one divides the other.</p></li>
 </ul>
-<p>\centering
-=[font=] (5,11.75) to[short, -o] (5,11.75) ; (4.75,11.5) to[short,
--o] (4.75,11.5) ; (8.75,11.5) rectangle (8.75,11.5); (8.5,11.5)
-rectangle (9.5,10.5); (9,10.5) rectangle (8.75,10.5); (9.25,8.75)
-rectangle (9.25,8.75); (8.5,9.75) rectangle (9.5,8.75); (9,8.75)
-rectangle (9,8.75); (9.5,11) rectangle (9.5,10.75); (9.5,11) rectangle
-(9.5,10.5); (8.5,8) rectangle (9.5,7); (8.5,13) rectangle (9.5,12);
-(tikzmaker) [shift=(0, -0.125)] at (3,8.75) ![Simple example of the
-pigeonhole principle (using
-pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
-width=”0cm”}; (tikzmaker) [shift=(.75, -0.75)] at (3.5,7.75) ![Simple
-example of the pigeonhole principle (using
-pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
-width=”1.5cm”}; (tikzmaker) [shift=(-0.75, –0.75)] at (5,12.75)
-![Simple example of the pigeonhole principle (using
-pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
-width=”1.5cm”}; (tikzmaker) [shift=(0.75, -0.75)] at (3.5,9.25)
-![Simple example of the pigeonhole principle (using
-pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
-width=”1.5cm”}; (tikzmaker) [shift=(-0.65, –0.75)] at (5,11.25)
-![Simple example of the pigeonhole principle (using
-pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
-width=”1.5cm”}; (tikzmaker) [shift=(0.75, -0.75)] at (3.5,11) ![Simple
-example of the pigeonhole principle (using
-pigeons!)[]{label=”fig:placeholder”}](math 325/lecture notes/week 3/pigeon.jpg “fig:”){#fig:placeholder
-width=”1.5cm”}; (4.75,13.5) – (8.25,12.5); (5,12) – (8.25,11);
-(5,10.25) – (8.25,9.25); (4.75,8.75) – (8.25,7.5); (5.25,6.75) –
-(8.25,7.25); at (9,12.5) 1; at (9,11) 2; at (9,7.5) 4; at (9,9.25) 3;</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/pigeon.png"><img alt="../_images/pigeon.png" src="../_images/pigeon.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Simple example of pigeonhole principle with pigeons and pigeonholes</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>To end this section, let’s work through a few problems:</p>
+<div class="proof question admonition" id="question-6">
+<p class="admonition-title"><span class="caption-number">Question 15 </span> (To Ponder)</p>
+<section class="question-content" id="proof-content">
+<p>Pretend we are going to group the 21 combinatorics students into 4 study groups. Each group will have a leader.</p>
+<ul class="simple">
+<li><p>How many ways can we select the leaders?</p></li>
+<li><p>Pretend we number the groups 1,2,3, and 4. How many ways can we assign leaders to groups?</p></li>
+<li><p>Use the pigeonhole principle to show that there is a group with at least 2 people.</p></li>
+<li><p>Use the pigeonhole principle to show that there is a group with at least 6 people.</p></li>
+</ul>
 </section>
+</div></section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <p>What we’ve covered here:</p>

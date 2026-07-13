@@ -21,6 +21,14 @@ Consider the set $S=\{1,2,3,\dots, 325\}$. How many zeroes are at the end of the
 ````{prf:question}
 Given five points inside a 2 by 2 square, show that there are two points whose distance is at most $\sqrt{2}$.
 ````
+```{figure} ../content/photos/unitsquare.png
+---
+height: 250px
+---
+```
+
+
+
 > **Potential Answer:** Consider partitioning the square into 4 equally sized squares. The maximum distance between any two points is between the corners themselves. This distance is $\sqrt{2}$. Since we have 5 points in 4 squares, by the pigeonhole principle, we have at least 2 points in one square. These two points could be on the corners, which means the distance between them is at most $\sqrt{2}$.
 
 ## Binomial Theorem
@@ -41,8 +49,14 @@ This relationship between $(x+y)^n$ and the right-hand sum is what we call the *
 Consider an $m\times n$ grid with corners $(0,0), (0,n),(m,0)~\&~(m,n)$. A *lattice path* is a path starting at (0,0) and ending at $(m,n)$ only
 moving right and up.
 ````
-Below is an example of a lattice path on the $5\times 4$ grid.
-![image](math 325/book/content/photos/lattice path.png){width=".3\textwidth"}
+
+
+```{figure} ../content/photos/latticepath.png
+---
+height: 250px
+---
+An example of a lattice path on the $5\times 4$ grid.
+```
 
 ````{prf:question}
 How many lattices paths are there an $m\times n$ grid?
@@ -53,19 +67,25 @@ How many lattices paths are there an $m\times n$ grid?
 ````{prf:question}
 How many lattice paths on an $m\times n$ grid do not cross the line $y=x$? i.e. They can meet the points $(i,i)$ but not $(i+1,i)$.
 ````
-Below is an example of paths we want to consider. On the left, we have a path that does not cross $y=x$ while on the right we do.
 
-![image](math 325/lecture notes/week 3/goodpath.png){width=".3\textwidth"}
-![image](math 325/lecture notes/week 3/badpath.png){width=".3\textwidth"}\
+```{figure} ../content/photos/latticepathcross.png
+---
+height: 250px
+---
+An example of paths we want to consider. On the left, we have a path that does not cross $y=x$ while on the right we do.
+```
 
-
-> **Potential Answer:** Consider the point after a path crosses the diagonal. Using the example above, we have something like
-
-![image](math 325/book/content/photos/latticepathproof.png){width=".3\textwidth"}
-
+> **Potential Answer:** Consider the point after a path crosses the diagonal. Using the example above, we have something like 
+```{image} ../content/photos/latticepathproof.png 
+:height: 250px 
+:align: center 
+```
 >Assume we cross for some path. This point, $(x-1,x)$, we have gone up one more time than we'd like. This means we will have $n-x$ more ups and $n-x+1$ more rights to get to $(n,n)$. Keeping the path up to $(x-1,x)$ the same, let's reverse the direction of everything afterward. Before, we had one more right than up ($n-x+1$ rights and $n-x$ ups). Now, we will now have one more up than right ($n-x$ rights and $n-x+1$ ups). Since every step before $(x-1,x)$ is this same, we end up making $n-x$ more rights to end up at $n-1$ to the right and making $n-x+1$ ups to end up at $n+1$ up. So, we have a lattice path of the $(n-1)\times (n+1)$ grid.
 
-![image](math 325/book/content/photos/latticepathproof2.png){width=".3\textwidth"}
+```{image} ../content/photos/latticepathproof2.png
+:height: 250px
+:align: center
+```
 
 > This operation defines our function $f$ taking paths that cross the diagonal in the $n\times n$ grid to lattice paths of the $(n-1)\times (n+1)$ grid. $f^{-1}$ is simply taking a lattice path on the $(n-1)\times (n+1)$ grid and reversing steps after crossing the diagonal (try formalizing yourself!). Since we have a bijection, there are the same number of paths that cross on the $n\times n$ grid as lattice paths on the $(n-1)\times (n+1)$ grid. There are $\binom{n-1+n+1}{n-1}=\binom{2n}{n-1}$ such lattice paths on the $(n-1)\times (n+1)$ grid. Removing this from the total $\binom{2n}{n}$ lattices path on the $n\times n$ grid, we get the number that do not cross the diagonal: 
 
@@ -78,12 +98,12 @@ This expression forms an exceptionally useful sequence of numbers, the *Catalan 
 
 We are going to place $1\times 1$ squares and $1\times 2$ dominos on a $1\times n$ board. "Tiling" the board means we cover the $n$ spots exactly.
 
-\centering
-=\[font=\] (2,9.75) -- (5.25,9.75); (2,9.75) -- (2,8.25); (2,8.25) --
-(5.25,8.25); (4.5,7.25) -- (4.5,7.25); (5.25,9.75) -- (7.5,9.75);
-(5.25,8.25) -- (7.5,8.25); (7.5,9.75) -- (9.25,9.75); (7.5,8.25) --
-(9.25,8.25); (9.25,9.75) -- (9.25,8.25); (3.5,9.75) -- (3.5,8.25);
-(5,9.75) -- (5,8.25); (7.75,9.75) -- (7.75,8.25);
+```{figure} ../content/photos/tiling.png
+---
+height: 100px
+---
+A $1\times n$ board soon to be covered with squares and dominoes.
+```
 
 ````{prf:question}
 Let $t_n$ be the number of ways there are to tile the $1\times n$ board with squares and dominos. Find an expression for $t_n$ using $t_{n-1}$ and $t_{n-2}$ (i.e. some function $t_n=f(t_{n-1},t_{n-2})$).

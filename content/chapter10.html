@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css?v=8c6b312c" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
@@ -345,12 +346,32 @@
 <section id="principle-of-inclusion-exclusion-p-i-e">
 <h2>Principle of Inclusion-Exclusion (P.I.E.)<a class="headerlink" href="#principle-of-inclusion-exclusion-p-i-e" title="Link to this heading">#</a></h2>
 <p>Thus far, we’ve covered a very simple counting problem using set theory: For two sets <span class="math notranslate nohighlight">\(A,B\)</span>, if they are disjoint <span class="math notranslate nohighlight">\((|A\cap B|=0)\)</span>, we know that <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>. For example, recall the problem of disjoint sets of students: “How many people are in Math 325 or Physics 533 if they occur at the same time?”. That is, to count the number of things in the set <span class="math notranslate nohighlight">\(A\cup B\)</span> we could just count the number of things in <span class="math notranslate nohighlight">\(A\)</span> once, count the number of things in <span class="math notranslate nohighlight">\(B\)</span> once, and sum them.</p>
-<p>[[fig:my_label]]{#fig:my_label label=”fig:my_label”}</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/pie1.png"><img alt="../_images/pie1.png" src="../_images/pie1.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">In the disjoint case, <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|\)</span>.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>However, in the case that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are not disjoint, we run into a problem. If we count the number of elements in <span class="math notranslate nohighlight">\(A\)</span>, then count the number of elements in <span class="math notranslate nohighlight">\(B\)</span>, we end up counting their shared elements twice!</p>
-<p>So, to count <span class="math notranslate nohighlight">\(|A\cup B|\)</span>, we must correct this over counting by <em>excluding</em> a copy of the set we over-counted. Counting <span class="math notranslate nohighlight">\(A\)</span>, we get <span class="math notranslate nohighlight">\(|A|\)</span>. Counting <span class="math notranslate nohighlight">\(B\)</span>, we get <span class="math notranslate nohighlight">\(|B|\)</span>. Since we count <span class="math notranslate nohighlight">\(|A\cap B|\)</span> twice, we can count <span class="math notranslate nohighlight">\(A\cup B\)</span> in a straightforward way: <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|-|A\cap B|\)</span>. That is, by counting <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, we over-count <span class="math notranslate nohighlight">\(A\cap B\)</span>, so we correct this to find <span class="math notranslate nohighlight">\(|A\cup B|\)</span> (see Figure <a class="reference internal" href="#fig:simplepie"><span class="xref myst">[fig:simplepie]</span></a>{reference-type=”ref”
-reference=”fig:simplepie”} for a visual aid).\</p>
-<p>\centering
-[[fig:my_label]]{#fig:my_label label=”fig:my_label”}</p>
+<p>So, to count <span class="math notranslate nohighlight">\(|A\cup B|\)</span>, we must correct this over counting by <em>excluding</em> a copy of the set we over-counted. Counting <span class="math notranslate nohighlight">\(A\)</span>, we get <span class="math notranslate nohighlight">\(|A|\)</span>. Counting <span class="math notranslate nohighlight">\(B\)</span>, we get <span class="math notranslate nohighlight">\(|B|\)</span>. Since we count <span class="math notranslate nohighlight">\(|A\cap B|\)</span> twice, we can count <span class="math notranslate nohighlight">\(A\cup B\)</span> in a straightforward way: <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|-|A\cap B|\)</span>. That is, by counting <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, we over-count <span class="math notranslate nohighlight">\(A\cap B\)</span>, so we correct this to find <span class="math notranslate nohighlight">\(|A\cup B|\)</span> (see  for a visual aid).</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/pie2.png"><img alt="../_images/pie2.png" src="../_images/pie2.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">On the left, we have <span class="math notranslate nohighlight">\(|A|+|B|\)</span> where we count <span class="math notranslate nohighlight">\(A\cap B\)</span> twice. To fix this, on the right, we remove a copy of <span class="math notranslate nohighlight">\(|A\cap B|\)</span> to get the true count <span class="math notranslate nohighlight">\(|A\cup B|=|A|+|B|-|A\cap B|\)</span>.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>And we can continue on and on:</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/pie1.png"><img alt="../_images/pie1.png" src="../_images/pie1.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">On the left, we count <span class="math notranslate nohighlight">\(A\)</span> then <span class="math notranslate nohighlight">\(B\)</span> then <span class="math notranslate nohighlight">\(C\)</span> to get <span class="math notranslate nohighlight">\(|A|+|B|+|C|\)</span>. We need to remove the pairwise
+intersections once. This removes the triple-wise intersection entirely so we include it back: <span class="math notranslate nohighlight">\(|A \cup B \cup C| =
+|A| +|B| +|C|−|A\cap B|−|A\cap C|−|B\cap C|+|A\cap B\cap C|\)</span></span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>This is the idea of the <em>Principle of Inclusion-Exclusion (P.I.E.)</em>: We want to count the union of sets so…</p>
 <ul class="simple">
 <li><p>Include count of the individuals</p></li>
@@ -373,10 +394,11 @@ triple-wise intersections</p></li>
 </section>
 <section id="description-involution-exclusion-d-i-e">
 <h2>Description, Involution, &amp; Exclusion (D.I.E.)<a class="headerlink" href="#description-involution-exclusion-d-i-e" title="Link to this heading">#</a></h2>
-<p>Oftentimes we are faced with a sum of the following form:
-$<span class="math notranslate nohighlight">\(\begin{aligned}
-\sum_{k=1}^n(-1)^kf_k&amp;=(-1)^nf_{n-1}\end{aligned}\)</span><span class="math notranslate nohighlight">\( 
-where \)</span>f_k<span class="math notranslate nohighlight">\( is the \)</span>k<span class="math notranslate nohighlight">\(-th Fibonacci number. Luckily, we have been equipped with experience with these numbers. We may even have an idea of rephrasing this sum combinatorially. For example, we know that \)</span>f_k<span class="math notranslate nohighlight">\( counts the number of ways to tile a \)</span>1\times k<span class="math notranslate nohighlight">\( board with squares and dominos. This alternating seems to define a relationship between the tilings. How might we prove such a sum? Thinking this specific example through, we see for even \)</span>k<span class="math notranslate nohighlight">\(, we have a coefficient \)</span>1<span class="math notranslate nohighlight">\(. For odd \)</span>k<span class="math notranslate nohighlight">\(, we have a coefficient \)</span>-1<span class="math notranslate nohighlight">\(. It is almost like the even tilings are naturally assigned 1 and odd tilings are naturally assigned -1. This sum seems to tell us that the set of tilings of every size has been split in two. But, for some reason they haven't been paired up all the way (i.e. why is there a \)</span>(-1)^nf_{n-1}$ on the right hand side?). This vein of thinking led to the useful cousin of inclusion and exclusion called the D.I.E. method. It proceeds as follows:</p>
+<p>Oftentimes we are faced with a sum of the following form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{align}
+\sum_{k=1}^n(-1)^kf_k&amp;=(-1)^nf_{n-1}\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_k\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>-th Fibonacci number. Luckily, we have been equipped with experience with these numbers. We may even have an idea of rephrasing this sum combinatorially. For example, we know that <span class="math notranslate nohighlight">\(f_k\)</span> counts the number of ways to tile a <span class="math notranslate nohighlight">\(1\times k\)</span> board with squares and dominos. This alternating seems to define a relationship between the tilings. How might we prove such a sum? Thinking this specific example through, we see for even <span class="math notranslate nohighlight">\(k\)</span>, we have a coefficient <span class="math notranslate nohighlight">\(1\)</span>. For odd <span class="math notranslate nohighlight">\(k\)</span>, we have a coefficient <span class="math notranslate nohighlight">\(-1\)</span>. It is almost like the even tilings are naturally assigned 1 and odd tilings are naturally assigned -1. This sum seems to tell us that the set of tilings of every size has been split in two. But, for some reason they haven’t been paired up all the way (i.e. why is there a <span class="math notranslate nohighlight">\((-1)^nf_{n-1}\)</span> on the right hand side?). This vein of thinking led to the useful cousin of inclusion and exclusion called the D.I.E. method. It proceeds as follows:</p>
 <ol class="arabic simple">
 <li><p>: Describe what the sum counts <em>ignoring</em> the alternating</p></li>
 <li><p>: Define a sign-reversing involution between the sets of opposite
@@ -384,9 +406,53 @@ parity</p></li>
 <li><p>: Count how many exclusions occur</p></li>
 </ol>
 <p>Without defining involution yet, we’ll discuss how a result might be proven. We already have a combinatorial model set up, so let’s try the D.I.E. method out:</p>
+<div class="proof question admonition" id="question-0">
+<p class="admonition-title"><span class="caption-number">Question 35 </span></p>
+<section class="question-content" id="proof-content">
+<p>Prove that</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+\sum_{k=1}^n(-1)^kf_k&amp;=(-1)^nf_{n-1}
+\end{aligned}\]</div>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. 1. Ignoring the alternating, <span class="math notranslate nohighlight">\(\sum\limits_{k=1}^nf_k\)</span> counts the number of ways to tile <span class="math notranslate nohighlight">\(1\times k\)</span> boards of size <span class="math notranslate nohighlight">\(1\)</span> through <span class="math notranslate nohighlight">\(n\)</span> using squares and dominos.
+2. Recall that even tilings are assigned 1 by our sum and odd tilings assigned -1. Consider “toggling” the last tile of a tiling by replacing it with the opposite tile. That is, if the tiling ends in a square, remove it and place a domino. Likewise, if the tiling ends in a domino, remove it and place a square. Since removing a square and replacing it with a domino increases the size by 1, the tiling length changes from even to odd or odd to even. Likewise, replacing a domino with a square changes the length of the tiling from even to odd or odd to even. So, no matter what, we change “parity” (even/odd switch) and are “sign-reversing” (1/<span class="math notranslate nohighlight">\(-1\)</span> switching). Also, if we toggle the last tile twice, we result in the same tiling and are an “involution”.
+3. What could go wrong? Well, if we have a tiling of the <span class="math notranslate nohighlight">\(n\)</span> board that ends in a square, we will toggle it and end up with a tiling of the <span class="math notranslate nohighlight">\(n+1\)</span> board. But, we don’t care about these tilings because our sum ends at <span class="math notranslate nohighlight">\(n\)</span>-sized boards. So, how many are there? Well, if our <span class="math notranslate nohighlight">\(n\)</span> board tiling ends in a square and we remove it, what do we have? A tiling of the <span class="math notranslate nohighlight">\(n-1\)</span> board. There are <span class="math notranslate nohighlight">\(f_{n-1}\)</span> such tilings. So, whatever <span class="math notranslate nohighlight">\(n\)</span> is assigned, we have not paired up <span class="math notranslate nohighlight">\(f_{n-1}\)</span> tilings in that assignment. That is, we have <span class="math notranslate nohighlight">\((-1)^nf_{n-1}\)</span> as a leftover term.
+4. We have paired up each odd tilings with an even tilings via a sign reversing involution <em>except</em> <span class="math notranslate nohighlight">\(f_{n-1}\)</span> tilings assigned <span class="math notranslate nohighlight">\((-1)^n\)</span>. So,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+   \sum_{k=1}^n(-1)^kf_k&amp;=(-1)^nf_{n-1}
+   \end{aligned}\]</div>
+</div>
+<p>Voilà! We have cleverly paired up our tilings to prove an otherwise hard to intuit sum. This is the idea of D.I.E. method. Another example for clarity:</p>
+<div class="proof question admonition" id="question-1">
+<p class="admonition-title"><span class="caption-number">Question 36 </span></p>
+<section class="question-content" id="proof-content">
+<p>Prove that $<span class="math notranslate nohighlight">\(\begin{aligned}
+\sum_{k=0}^n(-1)^k\binom{n}{k}=0
+\end{aligned}\)</span>$</p>
+</section>
+</div><div class="proof admonition" id="proof">
+<p>Proof. 1. Ignoring the alternating, <span class="math notranslate nohighlight">\(\sum\limits_{k=0}^n\binom{n}{k}\)</span> counts the number of subsets of <span class="math notranslate nohighlight">\(\{1,2,\dots, n\}\)</span> of sizes 1 through <span class="math notranslate nohighlight">\(n\)</span>.
+2. Note that for even <span class="math notranslate nohighlight">\(k\)</span>, we have a coefficient of 1. Meanwhile, odd <span class="math notranslate nohighlight">\(k\)</span> gives a coefficient of -1. So, even sized subsets are assigned 1. Meanwhile, odd subsets are assigned -1. Consider “toggling” the element 1 in a subset. That is, if 1 is in the subset, remove it. If not, add it. Then, the parity of the subset will change (even to odd or odd to even) and so the assignment (1 to -1 or -1 to 1). So, this operation is sign-reversing. Removing 1 then including 1 will result in the same subset. Likewise with including 1 and then removing it again. So, this operation is an involution.
+3. If a subset has 1 in it and we remove it, we obtain a subset of opposite parity. Otherwise, the subset does not have 1 and we add it to obtain a subset of opposite parity. So, each subset is paired up and we have no exceptions.
+4. We have paired up each odd sized subsets of <span class="math notranslate nohighlight">\(\{1,2,\dots,n\}\)</span> with even sized subsets of <span class="math notranslate nohighlight">\(\{1,2,\dots, n\}\)</span> via a sign reversing involution with no exceptions. So,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+   \sum_{k=0}^n(-1)^k\binom{n}{k}=0
+   \end{aligned}\]</div>
+</div>
 <p>Pretty clever! Hopefully by now you have some idea for what a
 “sign-reversing involution” does. Formally, this is what we are after:</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Sign-Reversing Involution)</p>
+<section class="definition-content" id="proof-content">
+<p>A function <span class="math notranslate nohighlight">\(f:A\to B\)</span> is an <em>involution</em> if <span class="math notranslate nohighlight">\(f(f(a))=a\)</span> for all
+<span class="math notranslate nohighlight">\(a\in A\)</span>. The involution <span class="math notranslate nohighlight">\(f\)</span> is then <em>sign-reversing</em> if <span class="math notranslate nohighlight">\(f(a)\)</span> and <span class="math notranslate nohighlight">\(a\)</span>
+differ in sign for all <span class="math notranslate nohighlight">\(a\in A\)</span>.</p>
 </section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">

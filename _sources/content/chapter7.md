@@ -37,8 +37,7 @@ First, we must identify a problem that these formulae count. Perhaps, we can hyp
 
 ````
 
-The trick is that I created a scenario to help me prove the
-combinatorial identity $\binom{10}{3}\binom{6}{2}=\binom{6}{2}\binom{10}{3}$. This is the idea behind a *combinatorial model*. For clarity, recall the process of double counting:
+The trick is that I created a scenario to help me prove the combinatorial identity $\binom{10}{3}\binom{6}{2}=\binom{6}{2}\binom{10}{3}$. This is the idea behind a *combinatorial model*. For clarity, recall the process of double counting:
 
 ````{prf:definition} Double Counting
 *Double counting* is the proof technique commonly used in combinatorics to prove identities. Consider a question of the form "Show =". Double counting would proceed as follows:
@@ -95,7 +94,10 @@ $\binom{2n}{n}=\binom{n}{0}^2+\binom{n}{1}^2+\dots+\binom{n}{n}^2$ (or equivalen
 **LHS**: We know from before, that there $\binom{2n}{n}$ lattice paths.  
 **RHS**: Consider some column $k$ on our grid:
 
-![image](math 325/book/content/photos/columnlattice.png){width=".3\textwidth"}
+```{image} ../content/photos/columnlattice.png
+:height: 250px
+:align: center
+```
 
 At some point, every lattice path must meet each column $k=0,1,2,\dots, n$ by definition of a lattice path. Using the same intuition when proving the general formula for lattice paths, consider the path we took to meet the column $k$. We must have gone right $k$ times. There are $\binom{n}{k}$ ways to select when to go right. After meeting this column, there are $n-k$ more right moves to make. We can do this in $\binom{n}{n-k}$ ways. So, there are $\binom{n}{k}\binom{n}{n-k}=\binom{n}{k}\binom{n}{k}=\binom{n}{k}^2$ ways for each $k$. Since selecting when to move right determines when we move up, we have covered every lattice path. Therefore, there are $\sum_{k=0}^n\binom{n}{k}^2$ total lattice paths.  
 __Conclusion__: Since both formulas count how many lattices paths there are, $\binom{2n}{n}=\sum_{k=0}^n\binom{n}{k}^2$.
