@@ -143,8 +143,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -340,7 +346,7 @@
 <h2>Probability Basics<a class="headerlink" href="#probability-basics" title="Link to this heading">#</a></h2>
 <p>You probably (pun-intended) have an idea of what probability is. We experience this most every day of our lives. Thoughts like “I figure the bus will be late today” or “I think I will pass this class” are both simple examples of probabilistic thinking. <em>We are assigning an event some chance of occurring</em>. We will now formalize this idea mathematically.</p>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Sample Space &amp; Probability)</p>
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Sample Space &amp; Probability)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>sample space</em> <span class="math notranslate nohighlight">\(\Omega=\{\omega_1,\omega_2,\dots, \omega_n\}\)</span> is a set of events (outcomes, occurences, etc.). A <em>probability</em> <span class="math notranslate nohighlight">\(\mathbb{P}:\Omega\to [0,1]\)</span> is a function assigning elements of <span class="math notranslate nohighlight">\(\Omega\)</span> a number such that the following hold</p>
 <ol class="arabic simple">
@@ -351,7 +357,7 @@
 </div><p>Intuitively, a sample space is simply a set and a probability is just function with special restrictions. Even more intuitively, a sample space is a set of events and a probability is a likelihood those events occur.<br />
 Enough formalism, examples below.</p>
 <div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 8 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 7 </span></p>
 <section class="example-content" id="proof-content">
 <ul class="simple">
 <li><p>Let <span class="math notranslate nohighlight">\(\Omega=\{\)</span>heads, tails<span class="math notranslate nohighlight">\(\}\)</span> and <span class="math notranslate nohighlight">\(\mathbb{P}[\)</span>heads<span class="math notranslate nohighlight">\(]=\mathbb{P}[\)</span>tails<span class="math notranslate nohighlight">\(]=\frac{1}{2}\)</span>. Then, we have the famed “fair coin toss”. If you have not flipped a coin yet, please do. Note that <span class="math notranslate nohighlight">\(\mathbb{P}[\omega_i]=\frac{1}{2}\geq 0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>. Also, <span class="math notranslate nohighlight">\(\sum\limits_{i=1}^n\mathbb{P}[\omega_i]=\mathbb{P}[\text{heads}]+\mathbb{P}[\text{tails}]=\frac{1}{2}+\frac{1}{2}=1\)</span>. So, the <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span> we have chosen is indeed a <em>probability</em>.</p></li>
@@ -377,7 +383,7 @@ Enough formalism, examples below.</p>
 </ul>
 </section>
 </div><div class="proof example admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 8 </span></p>
 <section class="example-content" id="proof-content">
 <p>Consider an urn with <span class="math notranslate nohighlight">\(n\)</span> orbs labeled <span class="math notranslate nohighlight">\(\{1,2,\dots,n\}\)</span>. We will draw an orb without looking and then putting it back.</p>
 <ol class="arabic simple">
@@ -399,7 +405,7 @@ Enough formalism, examples below.</p>
 </section>
 </div><p>Hopefully this seems rather intuitive: “<span class="math notranslate nohighlight">\(A\)</span> <em>and</em> <span class="math notranslate nohighlight">\(B\)</span> happening means <span class="math notranslate nohighlight">\(B\)</span> must have happened. Now given that <span class="math notranslate nohighlight">\(B\)</span> has happened, consider <span class="math notranslate nohighlight">\(A\)</span>”. Note that the choice of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> here is arbitrary. That is, we can also say <span class="math notranslate nohighlight">\(\mathbb{P}[A\cap B]=\mathbb{P}[B|A]\mathbb{P}[A]\)</span>.</p>
 <div class="proof example admonition" id="example-6">
-<p class="admonition-title"><span class="caption-number">Example 10 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 9 </span></p>
 <section class="example-content" id="proof-content">
 <p>Consider again the orb and urn problem with <span class="math notranslate nohighlight">\(n\)</span> numbered orbs. We will draw without looking. This time, we will not put the drawn orb back in the urn. Consider drawing 2 and setting it to the side. Now, there are only <span class="math notranslate nohighlight">\(n-1\)</span> orbs in the urn. This affects the probability of drawing any of the remaining orbs. Originally, <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{n}\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> in the urn. Without 2, we have <span class="math notranslate nohighlight">\(\mathbb{P}[i]=\frac{1}{n-1}\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> in the urn.</p>
 </section>
@@ -422,7 +428,7 @@ and then DeMorgan’s laws to obtain second point.</p>
 <h2>Random Variables<a class="headerlink" href="#random-variables" title="Link to this heading">#</a></h2>
 <p>We are now ready to define what is called a random variable. Much like a variable in the traditional sense, a random variable is a placeholder that takes on values from some set. A random variable differs from a traditional variable since we also require that it takes <em>random</em> values from <span class="math notranslate nohighlight">\(\Omega\)</span> according to <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>. Formally,</p>
 <div class="proof definition admonition" id="definition-8">
-<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>A random variable <span class="math notranslate nohighlight">\(X:\Omega \to \mathbb{R}\)</span> is a function that maps the
 events in <span class="math notranslate nohighlight">\(\Omega\)</span> equipped with the probability <span class="math notranslate nohighlight">\(\mathbb{P}[\cdot]\)</span>.</p>
@@ -439,7 +445,7 @@ dominoes<span class="math notranslate nohighlight">\(\}\)</span> and <span class
 randomly draw board.</p></li>
 </ul>
 <div class="proof definition admonition" id="definition-9">
-<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Expected Value)</p>
+<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Expected Value)</p>
 <section class="definition-content" id="proof-content">
 <p>The <em>expectation</em> (expected value) of a random variable is defined as</p>
 <div class="math notranslate nohighlight">
@@ -554,13 +560,6 @@ By Garrett Kepler
   
   <div class="footer-item">
     
-
-  <p class="copyright">
-    
-      © Copyright 2023.
-      <br/>
-    
-  </p>
 
   </div>
   

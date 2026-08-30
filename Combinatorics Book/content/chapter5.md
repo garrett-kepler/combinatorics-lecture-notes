@@ -77,35 +77,12 @@ This problem exemplifies why the pigeonhole principle is so useful:
 - This is an insanely large number. More than the number of atoms in 1 million Earths (Earth is about $\approx 10^{51}$ atoms).
 - But, without going through every single possible subset choice, we know something about *every single one of these choices*. Namely, that there must be two numbers in each such that one divides the other.
 
-\centering
-=\[font=\] (5,11.75) to\[short, -o\] (5,11.75) ; (4.75,11.5) to\[short,
--o\] (4.75,11.5) ; (8.75,11.5) rectangle (8.75,11.5); (8.5,11.5)
-rectangle (9.5,10.5); (9,10.5) rectangle (8.75,10.5); (9.25,8.75)
-rectangle (9.25,8.75); (8.5,9.75) rectangle (9.5,8.75); (9,8.75)
-rectangle (9,8.75); (9.5,11) rectangle (9.5,10.75); (9.5,11) rectangle
-(9.5,10.5); (8.5,8) rectangle (9.5,7); (8.5,13) rectangle (9.5,12);
-(tikzmaker) \[shift=(0, -0.125)\] at (3,8.75) ![Simple example of the
-pigeonhole principle (using
-pigeons!)[]{label="fig:placeholder"}](math 325/lecture notes/week 3/pigeon.jpg "fig:"){#fig:placeholder
-width="0cm"}; (tikzmaker) \[shift=(.75, -0.75)\] at (3.5,7.75) ![Simple
-example of the pigeonhole principle (using
-pigeons!)[]{label="fig:placeholder"}](math 325/lecture notes/week 3/pigeon.jpg "fig:"){#fig:placeholder
-width="1.5cm"}; (tikzmaker) \[shift=(-0.75, --0.75)\] at (5,12.75)
-![Simple example of the pigeonhole principle (using
-pigeons!)[]{label="fig:placeholder"}](math 325/lecture notes/week 3/pigeon.jpg "fig:"){#fig:placeholder
-width="1.5cm"}; (tikzmaker) \[shift=(0.75, -0.75)\] at (3.5,9.25)
-![Simple example of the pigeonhole principle (using
-pigeons!)[]{label="fig:placeholder"}](math 325/lecture notes/week 3/pigeon.jpg "fig:"){#fig:placeholder
-width="1.5cm"}; (tikzmaker) \[shift=(-0.65, --0.75)\] at (5,11.25)
-![Simple example of the pigeonhole principle (using
-pigeons!)[]{label="fig:placeholder"}](math 325/lecture notes/week 3/pigeon.jpg "fig:"){#fig:placeholder
-width="1.5cm"}; (tikzmaker) \[shift=(0.75, -0.75)\] at (3.5,11) ![Simple
-example of the pigeonhole principle (using
-pigeons!)[]{label="fig:placeholder"}](math 325/lecture notes/week 3/pigeon.jpg "fig:"){#fig:placeholder
-width="1.5cm"}; (4.75,13.5) -- (8.25,12.5); (5,12) -- (8.25,11);
-(5,10.25) -- (8.25,9.25); (4.75,8.75) -- (8.25,7.5); (5.25,6.75) --
-(8.25,7.25); at (9,12.5) 1; at (9,11) 2; at (9,7.5) 4; at (9,9.25) 3;
-
+```{figure} ../content/photos/pigeon.png
+---
+height: 250px
+---
+Simple example of pigeonhole principle with pigeons and pigeonholes
+```
 
 To end this section, let's work through a few problems:
 

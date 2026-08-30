@@ -144,8 +144,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -361,7 +367,11 @@ Note that there are more powers of two than 5 in our set (i.e. the powers of 5 a
 <section class="question-content" id="proof-content">
 <p>Given five points inside a 2 by 2 square, show that there are two points whose distance is at most <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
 </section>
-</div><blockquote>
+</div><figure class="align-default">
+<a class="reference internal image-reference" href="../_images/unitsquare.png"><img alt="../_images/unitsquare.png" src="../_images/unitsquare.png" style="height: 250px;" />
+</a>
+</figure>
+<blockquote>
 <div><p><strong>Potential Answer:</strong> Consider partitioning the square into 4 equally sized squares. The maximum distance between any two points is between the corners themselves. This distance is <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>. Since we have 5 points in 4 squares, by the pigeonhole principle, we have at least 2 points in one square. These two points could be on the corners, which means the distance between them is at most <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
 </div></blockquote>
 </section>
@@ -384,13 +394,18 @@ Note that there are more powers of two than 5 in our set (i.e. the powers of 5 a
 <section id="lattice-paths">
 <h2>Lattice Paths<a class="headerlink" href="#lattice-paths" title="Link to this heading">#</a></h2>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 12 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 11 </span></p>
 <section class="definition-content" id="proof-content">
 <p>Consider an <span class="math notranslate nohighlight">\(m\times n\)</span> grid with corners <span class="math notranslate nohighlight">\((0,0), (0,n),(m,0)~\&amp;~(m,n)\)</span>. A <em>lattice path</em> is a path starting at (0,0) and ending at <span class="math notranslate nohighlight">\((m,n)\)</span> only
 moving right and up.</p>
 </section>
-</div><p>Below is an example of a lattice path on the <span class="math notranslate nohighlight">\(5\times 4\)</span> grid.
-![image](math 325/book/content/photos/lattice path.png){width=”.3\textwidth”}</p>
+</div><figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/latticepath.png"><img alt="../_images/latticepath.png" src="../_images/latticepath.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">An example of a lattice path on the <span class="math notranslate nohighlight">\(5\times 4\)</span> grid.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="proof question admonition" id="question-4">
 <p class="admonition-title"><span class="caption-number">Question 19 </span></p>
 <section class="question-content" id="proof-content">
@@ -404,17 +419,23 @@ moving right and up.</p>
 <section class="question-content" id="proof-content">
 <p>How many lattice paths on an <span class="math notranslate nohighlight">\(m\times n\)</span> grid do not cross the line <span class="math notranslate nohighlight">\(y=x\)</span>? i.e. They can meet the points <span class="math notranslate nohighlight">\((i,i)\)</span> but not <span class="math notranslate nohighlight">\((i+1,i)\)</span>.</p>
 </section>
-</div><p>Below is an example of paths we want to consider. On the left, we have a path that does not cross <span class="math notranslate nohighlight">\(y=x\)</span> while on the right we do.</p>
-<p>![image](math 325/lecture notes/week 3/goodpath.png){width=”.3\textwidth”}
-![image](math 325/lecture notes/week 3/badpath.png){width=”.3\textwidth”}\</p>
+</div><figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/latticepathcross.png"><img alt="../_images/latticepathcross.png" src="../_images/latticepathcross.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">An example of paths we want to consider. On the left, we have a path that does not cross <span class="math notranslate nohighlight">\(y=x\)</span> while on the right we do.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <blockquote>
 <div><p><strong>Potential Answer:</strong> Consider the point after a path crosses the diagonal. Using the example above, we have something like</p>
 </div></blockquote>
-<p>![image](math 325/book/content/photos/latticepathproof.png){width=”.3\textwidth”}</p>
+<a class="reference internal image-reference" href="../_images/latticepathproof.png"><img alt="../_images/latticepathproof.png" class="align-center" src="../_images/latticepathproof.png" style="height: 250px;" />
+</a>
 <blockquote>
 <div><p>Assume we cross for some path. This point, <span class="math notranslate nohighlight">\((x-1,x)\)</span>, we have gone up one more time than we’d like. This means we will have <span class="math notranslate nohighlight">\(n-x\)</span> more ups and <span class="math notranslate nohighlight">\(n-x+1\)</span> more rights to get to <span class="math notranslate nohighlight">\((n,n)\)</span>. Keeping the path up to <span class="math notranslate nohighlight">\((x-1,x)\)</span> the same, let’s reverse the direction of everything afterward. Before, we had one more right than up (<span class="math notranslate nohighlight">\(n-x+1\)</span> rights and <span class="math notranslate nohighlight">\(n-x\)</span> ups). Now, we will now have one more up than right (<span class="math notranslate nohighlight">\(n-x\)</span> rights and <span class="math notranslate nohighlight">\(n-x+1\)</span> ups). Since every step before <span class="math notranslate nohighlight">\((x-1,x)\)</span> is this same, we end up making <span class="math notranslate nohighlight">\(n-x\)</span> more rights to end up at <span class="math notranslate nohighlight">\(n-1\)</span> to the right and making <span class="math notranslate nohighlight">\(n-x+1\)</span> ups to end up at <span class="math notranslate nohighlight">\(n+1\)</span> up. So, we have a lattice path of the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid.</p>
 </div></blockquote>
-<p>![image](math 325/book/content/photos/latticepathproof2.png){width=”.3\textwidth”}</p>
+<a class="reference internal image-reference" href="../_images/latticepathproof2.png"><img alt="../_images/latticepathproof2.png" class="align-center" src="../_images/latticepathproof2.png" style="height: 250px;" />
+</a>
 <blockquote>
 <div><p>This operation defines our function <span class="math notranslate nohighlight">\(f\)</span> taking paths that cross the diagonal in the <span class="math notranslate nohighlight">\(n\times n\)</span> grid to lattice paths of the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid. <span class="math notranslate nohighlight">\(f^{-1}\)</span> is simply taking a lattice path on the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid and reversing steps after crossing the diagonal (try formalizing yourself!). Since we have a bijection, there are the same number of paths that cross on the <span class="math notranslate nohighlight">\(n\times n\)</span> grid as lattice paths on the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid. There are <span class="math notranslate nohighlight">\(\binom{n-1+n+1}{n-1}=\binom{2n}{n-1}\)</span> such lattice paths on the <span class="math notranslate nohighlight">\((n-1)\times (n+1)\)</span> grid. Removing this from the total <span class="math notranslate nohighlight">\(\binom{2n}{n}\)</span> lattices path on the <span class="math notranslate nohighlight">\(n\times n\)</span> grid, we get the number that do not cross the diagonal:</p>
 </div></blockquote>
@@ -426,12 +447,13 @@ moving right and up.</p>
 <section id="tilings">
 <h2>Tilings<a class="headerlink" href="#tilings" title="Link to this heading">#</a></h2>
 <p>We are going to place <span class="math notranslate nohighlight">\(1\times 1\)</span> squares and <span class="math notranslate nohighlight">\(1\times 2\)</span> dominos on a <span class="math notranslate nohighlight">\(1\times n\)</span> board. “Tiling” the board means we cover the <span class="math notranslate nohighlight">\(n\)</span> spots exactly.</p>
-<p>\centering
-=[font=] (2,9.75) – (5.25,9.75); (2,9.75) – (2,8.25); (2,8.25) –
-(5.25,8.25); (4.5,7.25) – (4.5,7.25); (5.25,9.75) – (7.5,9.75);
-(5.25,8.25) – (7.5,8.25); (7.5,9.75) – (9.25,9.75); (7.5,8.25) –
-(9.25,8.25); (9.25,9.75) – (9.25,8.25); (3.5,9.75) – (3.5,8.25);
-(5,9.75) – (5,8.25); (7.75,9.75) – (7.75,8.25);</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/tiling.png"><img alt="../_images/tiling.png" src="../_images/tiling.png" style="height: 100px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">A <span class="math notranslate nohighlight">\(1\times n\)</span> board soon to be covered with squares and dominoes.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="proof question admonition" id="question-6">
 <p class="admonition-title"><span class="caption-number">Question 21 </span></p>
 <section class="question-content" id="proof-content">
@@ -584,13 +606,6 @@ By Garrett Kepler
   
   <div class="footer-item">
     
-
-  <p class="copyright">
-    
-      © Copyright 2023.
-      <br/>
-    
-  </p>
 
   </div>
   

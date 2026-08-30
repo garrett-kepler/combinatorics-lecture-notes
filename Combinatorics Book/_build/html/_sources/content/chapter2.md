@@ -30,7 +30,6 @@ bucket, fills it at the sink, and puts out the fire.</i>
 
 <i>The next day, the same mathematician returns to the same room. He sees a fire in the same corner. But, this time the bucket is full of water conveniently placed by the fire. So, he picks up the bucket, empties the water in the sink, places the bucket empty where it was from the day before and leaves. As he exits, he exclaims
 victoriously \"I've reduced it to a previously solved problem!\"</i>
-
 </p>
 
 Our first goal will be to mimic this proverbial mathematician's
@@ -118,37 +117,39 @@ This concept of bijection we subtly utilized previously is actually a
 fundamental result combinatorialists love to exploit. Before we get
 there, some basics are necessary.
 
-````{prf:definition}
-A *set* is a collection of distinct objects. E.g. the set of integers between 28 and 56 = $\{28,29,30,\dots, 56\}$, a set of graphs = 
-
+````{prf:definition} Set & Multiset
+A *set* is a collection of distinct objects. A *multiset* is a collection of not necessarily distinct objects.
 ````
+For example, the set of integers between 28 and 56, $\{28,29,30,\dots, 56\}$, and a set of graphs, { <img src="../content/photos/gseq1.png"  width=15/> , <img src="../content/photos/gseq2.png"  width=15> , <img src="../content/photos/gseq3.png"  width=15> , <img src="../content/photos/gseq4.png"  width=15> } . Likewise, a multiset of integers, $\{28,28, 28, 29,30,\dots, 56\}$, and a multiset of graphs, { <img src="../content/photos/gseq1.png"  width=15> , <img src="../content/photos/gseq2.png"  width=15> , <img src="../content/photos/gseq3.png"  width=15> , <img src="../content/photos/gseq4.png"  width=15> }. Multisets are important to combinatorics, but these lecture notes ignore them... sorry about that.
 
-- 
-
-Note in our definition of a set we require *distinctness*. As such, the
-collection $\{1,1,2,3,\dots,29\}$ is not a set. Likewise with any
-collection with repeating elements, but this permits another important
-definition:
-
-````{prf:definition}
-A *multiset* is a collection of not necessarily distinct objects. E.g. a multiset of integers between 28 and 56 = $\{28,28,28,29,30,\dots, 56\}$
-````
-
-However, we won't touch multisets until later on. For now, let us
-discuss relations between sets.
 
 ````{prf:definition}
 A *function* $f:A\to B$ is a relation between sets $A$ and $B$ such that for each $a\in A$ ($a$ in $A$), there is a unique $b\in B$ such that $f(a)=b$.
 ````
 
-As an example, on the left, we have $g:A\to B$ that assigns the second
-element in $A$ to two elements in $B$. This means $g$ a function. However, on the right, we have $f:A\to B$ that assigns each element in $A$ only one element in $B$. This means $f$ a function.
+As an example, on the left, we have $g:A\to B$ that assigns the second element in $A$ to two elements in $B$. This means $g$ a function. However, on the right, we have $f:A\to B$ that assigns each element in $A$ only one element in $B$. This means $f$ a function.
+
+
+```{figure} ../content/photos/functions.png
+---
+height: 250px
+---
+$g$, not a function. $f$, a function.
+
+```
+
+
 
 ````{prf:definition}
 Firstly, a function $f$ is *injective* if distinct elements in $A$ are mapped to distinct elements in $B$. Secondly, $f$ is *surjective* if every element in $B$ has at least one element in $A$ that gets mapped to it. Lastly, if $f$ is both injective and surjective, then $f$ is *bijective*.
-
 ````
 
+```{figure} ../content/photos/functions2.png
+---
+height: 250px
+---
+Examples of each type of function.
+```
 For combinatorial purposes, one nice way to think of a function
 $f:A\to B$ as the placement of a set of objects $A$ into a set of boxes
 $B$:

@@ -11,15 +11,33 @@ title: 'Lecture Notes on Combinatorics: Draft'
 
 Thus far, we've covered a very simple counting problem using set theory: For two sets $A,B$, if they are disjoint $(|A\cap B|=0)$, we know that $|A\cup B|=|A|+|B|$. For example, recall the problem of disjoint sets of students: "How many people are in Math 325 or Physics 533 if they occur at the same time?". That is, to count the number of things in the set $A\cup B$ we could just count the number of things in $A$ once, count the number of things in $B$ once, and sum them.
 
-[\[fig:my\_label\]]{#fig:my_label label="fig:my_label"}
+```{figure} ../content/photos/pie1.png
+---
+height: 250px
+---
+In the disjoint case, $|A\cup B|=|A|+|B|$.
+```
 
 However, in the case that $A$ and $B$ are not disjoint, we run into a problem. If we count the number of elements in $A$, then count the number of elements in $B$, we end up counting their shared elements twice!
 
-So, to count $|A\cup B|$, we must correct this over counting by *excluding* a copy of the set we over-counted. Counting $A$, we get $|A|$. Counting $B$, we get $|B|$. Since we count $|A\cap B|$ twice, we can count $A\cup B$ in a straightforward way: $|A\cup B|=|A|+|B|-|A\cap B|$. That is, by counting $A$ and $B$, we over-count $A\cap B$, so we correct this to find $|A\cup B|$ (see Figure [\[fig:simplepie\]](#fig:simplepie){reference-type="ref"
-reference="fig:simplepie"} for a visual aid).\
+So, to count $|A\cup B|$, we must correct this over counting by *excluding* a copy of the set we over-counted. Counting $A$, we get $|A|$. Counting $B$, we get $|B|$. Since we count $|A\cap B|$ twice, we can count $A\cup B$ in a straightforward way: $|A\cup B|=|A|+|B|-|A\cap B|$. That is, by counting $A$ and $B$, we over-count $A\cap B$, so we correct this to find $|A\cup B|$ (see  for a visual aid).
 
-\centering
-[\[fig:my\_label\]]{#fig:my_label label="fig:my_label"}
+```{figure} ../content/photos/pie2.png
+---
+height: 250px
+---
+On the left, we have $|A|+|B|$ where we count $A\cap B$ twice. To fix this, on the right, we remove a copy of $|A\cap B|$ to get the true count $|A\cup B|=|A|+|B|-|A\cap B|$.
+```
+
+And we can continue on and on:
+```{figure} ../content/photos/pie1.png
+---
+height: 250px
+---
+On the left, we count $A$ then $B$ then $C$ to get $|A|+|B|+|C|$. We need to remove the pairwise
+intersections once. This removes the triple-wise intersection entirely so we include it back: $|A \cup B \cup C| =
+|A| +|B| +|C|−|A\cap B|−|A\cap C|−|B\cap C|+|A\cap B\cap C|$
+```
 
 This is the idea of the *Principle of Inclusion-Exclusion (P.I.E.)*: We want to count the union of sets so...
 - Include count of the individuals
@@ -44,8 +62,10 @@ though this is algebraic formulation is not often used in practice.
 ## Description, Involution, & Exclusion (D.I.E.)
 
 Oftentimes we are faced with a sum of the following form:
-$$\begin{aligned}
-\sum_{k=1}^n(-1)^kf_k&=(-1)^nf_{n-1}\end{aligned}$$ 
+
+$$\begin{align}
+\sum_{k=1}^n(-1)^kf_k&=(-1)^nf_{n-1}\end{align}$$ 
+
 where $f_k$ is the $k$-th Fibonacci number. Luckily, we have been equipped with experience with these numbers. We may even have an idea of rephrasing this sum combinatorially. For example, we know that $f_k$ counts the number of ways to tile a $1\times k$ board with squares and dominos. This alternating seems to define a relationship between the tilings. How might we prove such a sum? Thinking this specific example through, we see for even $k$, we have a coefficient $1$. For odd $k$, we have a coefficient $-1$. It is almost like the even tilings are naturally assigned 1 and odd tilings are naturally assigned -1. This sum seems to tell us that the set of tilings of every size has been split in two. But, for some reason they haven't been paired up all the way (i.e. why is there a $(-1)^nf_{n-1}$ on the right hand side?). This vein of thinking led to the useful cousin of inclusion and exclusion called the D.I.E. method. It proceeds as follows:
 1. : Describe what the sum counts *ignoring* the alternating
 2. : Define a sign-reversing involution between the sets of opposite
@@ -69,7 +89,7 @@ $$\begin{aligned}
 $$\begin{aligned}
    \sum_{k=1}^n(-1)^kf_k&=(-1)^nf_{n-1}
    \end{aligned}$$
-
+````
 Voilà! We have cleverly paired up our tilings to prove an otherwise hard to intuit sum. This is the idea of D.I.E. method. Another example for clarity:
 
 ````{prf:question}

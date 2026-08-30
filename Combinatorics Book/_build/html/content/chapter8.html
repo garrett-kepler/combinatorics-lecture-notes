@@ -144,8 +144,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -355,65 +361,66 @@
 </div></section>
 <section id="graphs">
 <h2>Graphs<a class="headerlink" href="#graphs" title="Link to this heading">#</a></h2>
-<p>One fundamental combinatorial object we study in combinatorics is the <em>graph</em>. You may have already seen these. For example, see Figure
-<a class="reference internal" href="#fig:network"><span class="xref myst">[fig:network]</span></a>{reference-type=”ref”
-reference=”fig:network”}. We will formalize the idea in this section.</p>
-<p>![Examples of graphs. On the left, a network of the internet. On the right, a graph corresponding to a molecule. Courtesy of
-<a class="reference external" href="https://en.wikipedia.org/wiki/Computer_network">https://en.wikipedia.org/wiki/Computernetwork</a>
-and <a class="reference external" href="https://en.wikipedia.org/wiki/Molecule">https://en.wikipedia.org/wiki/Molecule</a>
-respectively.[]{label=”fig:network”}](math 325/book/content/photos/Internet_map_1024.png “fig:”){#fig:network
-height=”0.2\textheight”} ![Examples of graphs. On the left, a network of the internet. On the right, a graph corresponding to a molecule.
-Courtesy of
-<a class="reference external" href="https://en.wikipedia.org/wiki/Computer_network">https://en.wikipedia.org/wiki/Computernetwork</a>
-and <a class="reference external" href="https://en.wikipedia.org/wiki/Molecule">https://en.wikipedia.org/wiki/Molecule</a>
-respectively.[]{label=”fig:network”}](math 325/book/content/photos/TOAT_AFM.png “fig:”){#fig:network
-height=”.2\textheight”}</p>
+<p>One fundamental combinatorial object we study in combinatorics is the <em>graph</em>. You may have already seen these. For example, in the network of the internet:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/internet.png"><img alt="../_images/internet.png" src="../_images/internet.png" style="height: 350px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">From Wikipedia, at this page: <a class="reference external" href="https://en.wikipedia.org/wiki/Computer_network">here</a></span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Or perhaps in a molecule:</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/molecule.png"><img alt="../_images/molecule.png" src="../_images/molecule.png" style="height: 250px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">From Britannica, at this page: <a class="reference external" href="https://www.britannica.com/science/molecule">here</a></span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>These structures that consist of some set of objects and a relationship among them is what we will introduce in this section.</p>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 14 </span> (Graph)</p>
+<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Graph)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>graph</em> <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is a collection of vertices <span class="math notranslate nohighlight">\(V\)</span> and edges <span class="math notranslate nohighlight">\(E\)</span> where <span class="math notranslate nohighlight">\(E\)</span> is a set of pairs of vertices.</p>
 </section>
-</div><p>We can synonymously call vertices and edges nodes and arcs, but I will try to remain consistent with the former. We typically assume <span class="math notranslate nohighlight">\(E\)</span> is a set of edges defined over <span class="math notranslate nohighlight">\(V\)</span>. Otherwise, this object would indeed be hard to interpret. Consider the following graphs.</p>
-<div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 7 </span></p>
-<section class="example-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(G=(\{1,2,3\},\{(1,2),(2,3)\}\)</span>. Then, we can visualize <span class="math notranslate nohighlight">\(G\)</span> as</p>
-<div class="math notranslate nohighlight">
-\[visualization here\]</div>
+</div><p>We can synonymously call vertices and edges nodes and arcs, but I will try to remain consistent with the former. We typically assume <span class="math notranslate nohighlight">\(E\)</span> is a set of edges defined over <span class="math notranslate nohighlight">\(V\)</span>. Otherwise, this object would indeed be hard to interpret.</p>
+<p>As a first example of a graph, let <span class="math notranslate nohighlight">\(G=(\{1,2,3\},\{(1,2),(2,3)\}\)</span>. Then, we can visualize <span class="math notranslate nohighlight">\(G\)</span> as</p>
+<a class="reference internal image-reference" href="../_images/graph1.png"><img alt="../_images/graph1.png" class="align-center" src="../_images/graph1.png" style="width: 350px;" />
+</a>
 <p>Notice, if we remove <span class="math notranslate nohighlight">\((2,3)\)</span>, we end up with a different, yet similar
-graph <span class="math notranslate nohighlight">\(H=(\{1,2,3\},\{(1,2)\}\)</span>
-$<span class="math notranslate nohighlight">\(visualization here\)</span>$</p>
-</section>
-</div><p>Note that in drawing these graphs, we have an ordered pair <span class="math notranslate nohighlight">\((x,y)\)</span> telling us our edge begins at <span class="math notranslate nohighlight">\(x\)</span> and ends at <span class="math notranslate nohighlight">\(y\)</span>. As such, we have an arrow indicating the starting node and ending node for each edge. A graph where this <em>direction</em> is important we call a <em>directed graph</em>. If instead, order does not matter, we have an <em>undirected graph</em>.</p>
-<div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Directed)</p>
+graph <span class="math notranslate nohighlight">\(H=(\{1,2,3\},\{(1,2)\}\)</span></p>
+<a class="reference internal image-reference" href="../_images/graph2.png"><img alt="../_images/graph2.png" class="align-center" src="../_images/graph2.png" style="width: 350px;" />
+</a>
+<p>Note that in drawing these graphs, we have an ordered pair <span class="math notranslate nohighlight">\((x,y)\)</span> telling us our edge begins at <span class="math notranslate nohighlight">\(x\)</span> and ends at <span class="math notranslate nohighlight">\(y\)</span>. As such, we have an arrow indicating the starting node and ending node for each edge. A graph where this <em>direction</em> is important we call a <em>directed graph</em>. If instead, order does not matter, we have an <em>undirected graph</em>.</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 14 </span> (Directed)</p>
 <section class="definition-content" id="proof-content">
 <p>A graph <span class="math notranslate nohighlight">\(G=(V,E)\)</span> is <em>directed</em> when <span class="math notranslate nohighlight">\(E\)</span> consists of <em>ordered pairs</em> of vertices (e.g. <span class="math notranslate nohighlight">\((2,3)\)</span>). Conversely, a graph is <em>undirected</em> when <span class="math notranslate nohighlight">\(E\)</span> consists of <em>unordered pairs</em> of vertices (e.g. <span class="math notranslate nohighlight">\(\{2,3\}\)</span>).</p>
 </section>
 </div><p>Consider the graph from before, <span class="math notranslate nohighlight">\(G=(\{1,2,3\},\{(1,2),(2,3)\}\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[visualization here\]</div>
+<a class="reference internal image-reference" href="../_images/graph1.png"><img alt="../_images/graph1.png" class="align-center" src="../_images/graph1.png" style="width: 350px;" />
+</a>
 <p>We can form an undirected analogue, <span class="math notranslate nohighlight">\(H=(\{1,2,3\},\{\{1,2\},\{2,3\}\}\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[visualization here\]</div>
+<a class="reference internal image-reference" href="../_images/graph3.png"><img alt="../_images/graph3.png" class="align-center" src="../_images/graph3.png" style="width: 350px;" />
+</a>
 <p>Note, we do not require that the vertices in an edge be distinct. That is, we could have a <em>self-loop</em> <span class="math notranslate nohighlight">\((x,x)\)</span> for some <span class="math notranslate nohighlight">\(x\in V\)</span>.</p>
-<div class="math notranslate nohighlight">
-\[visualization here\]</div>
+<a class="reference internal image-reference" href="../_images/graph4.png"><img alt="../_images/graph4.png" class="align-center" src="../_images/graph4.png" style="width: 350px;" />
+</a>
 <p>We also do not require that there is only one edge between a pair of nodes.</p>
-<div class="math notranslate nohighlight">
-\[visualization here\]</div>
+<a class="reference internal image-reference" href="../_images/graph5.png"><img alt="../_images/graph5.png" class="align-center" src="../_images/graph5.png" style="width: 350px;" />
+</a>
 <p>We can even weight edges!</p>
-<div class="math notranslate nohighlight">
-\[visualization here\]</div>
+<a class="reference internal image-reference" href="../_images/graph6.png"><img alt="../_images/graph6.png" class="align-center" src="../_images/graph6.png" style="width: 350px;" />
+</a>
 <p>These objects can be very complicated indeed. As such, we can further restrict our graphs to what we call <em>simple</em>.</p>
-<div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Simple)</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Simple)</p>
 <section class="definition-content" id="proof-content">
 <p>A <em>simple</em> graph is an undirected, unweighted graph without self-loops and multiple edges.</p>
 </section>
 </div><p>A simple graph is arguably the easiest graph to think of. But, simple and not simple graphs have the pros and cons when dealing with them in practice.</p>
 <p>Consider the following question:</p>
-<div class="proof question admonition" id="question-5">
+<div class="proof question admonition" id="question-4">
 <p class="admonition-title"><span class="caption-number">Question 32 </span></p>
 <section class="question-content" id="proof-content">
 <p>How many simple, undirected graphs in general are there on <span class="math notranslate nohighlight">\(n\)</span> nodes?</p>
@@ -422,17 +429,19 @@ $<span class="math notranslate nohighlight">\(visualization here\)</span>$</p>
 <div><p><strong>Answer:</strong> For an edge to exist, we have to pair up two nodes. How many ways can we do this? <span class="math notranslate nohighlight">\(\binom{n}{2}\)</span> ways. For each of those potential edges, there is 2 possibilities: the edge exists or it doesn’t. So, by multiplication principle, there are <span class="math notranslate nohighlight">\(2^{\binom{n}{2}}\)</span> possible graphs in general.</p>
 </div></blockquote>
 <p>Okay, <span class="math notranslate nohighlight">\(2^{\binom{n}{2}}\)</span> in general. But, consider the two following graphs.</p>
-<div class="math notranslate nohighlight">
-\[visualization here\]</div>
-<p>Intuitively, these are representatives of the same structure. One could say these are the same graph with different labels. This idea is what we call <em>isomorphic graphs</em>. The question of “How many simple <em>non-isomorphic</em> graphs are there on <span class="math notranslate nohighlight">\(n\)</span> nodes?” is a much more difficult question to answer. See here for more: $<span class="math notranslate nohighlight">\(link here\)</span>$.</p>
+<a class="reference internal image-reference" href="../_images/graph7.png"><img alt="../_images/graph7.png" class="align-center" src="../_images/graph7.png" style="width: 350px;" />
+</a>
+<p>Intuitively, these are representatives of the same structure. One could say these are the same graph with different labels. This idea is what we call <em>isomorphic graphs</em>. The question of “How many simple <em>non-isomorphic</em> graphs are there on <span class="math notranslate nohighlight">\(n\)</span> nodes?” is a much more difficult question to answer. See here for more: <a class="reference external" href="https://en.wikipedia.org/wiki/P%C3%B3lya_enumeration_theorem">Pólya</a>.</p>
 <p>There are many features of graphs we care about. One particular example is the number of edges each node is represented in.</p>
-<div class="proof definition admonition" id="definition-6">
-<p class="admonition-title"><span class="caption-number">Definition 17 </span> (Degree)</p>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Degree)</p>
 <section class="definition-content" id="proof-content">
 <p>The number of edges incident with a node <span class="math notranslate nohighlight">\(v\)</span> is the <em>degree</em> of <span class="math notranslate nohighlight">\(v\)</span> denoted <span class="math notranslate nohighlight">\(d(v)\)</span>.</p>
 </section>
 </div><p>For the following graph, the degree of each node is: <span class="math notranslate nohighlight">\(d(1)=1\)</span>, <span class="math notranslate nohighlight">\(d(2)=2\)</span>, and <span class="math notranslate nohighlight">\(d(3)=1\)</span>.</p>
-<div class="proof theorem admonition" id="theorem-7">
+<a class="reference internal image-reference" href="../_images/graph3.png"><img alt="../_images/graph3.png" class="align-center" src="../_images/graph3.png" style="width: 350px;" />
+</a>
+<div class="proof theorem admonition" id="theorem-6">
 <p class="admonition-title"><span class="caption-number">Theorem 13 </span> (Handshaking Lemma)</p>
 <section class="theorem-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(G=(V,E)\)</span>. Then,</p>
@@ -444,12 +453,12 @@ $<span class="math notranslate nohighlight">\(visualization here\)</span>$</p>
 </div><div class="proof admonition" id="proof">
 <p>Proof. For each node <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(d(v)\)</span> counts the number of edges <span class="math notranslate nohighlight">\(v\)</span> appears in (i.e. the number of edges <span class="math notranslate nohighlight">\((v,u)\)</span> or <span class="math notranslate nohighlight">\(\{v,u\}\)</span>). The sum over all <span class="math notranslate nohighlight">\(v\)</span> will count <span class="math notranslate nohighlight">\((v,u)\)</span> and <span class="math notranslate nohighlight">\((u,v)\)</span> for every edge in the graph. As such, we count twice the number of edges in the graph.</p>
 </div>
-<div class="proof corollary admonition" id="corollary-8">
+<div class="proof corollary admonition" id="corollary-7">
 <p class="admonition-title"><span class="caption-number">Corollary 1 </span></p>
 <section class="corollary-content" id="proof-content">
 <p>In a graph <span class="math notranslate nohighlight">\(G\)</span>, there are an even number of odd degree nodes.</p>
 </section>
-</div><div class="proof question admonition" id="question-9">
+</div><div class="proof question admonition" id="question-8">
 <p class="admonition-title"><span class="caption-number">Question 33 </span></p>
 <section class="question-content" id="proof-content">
 <p>Using the binomial theorem, how many <em>directed</em> graphs are there on <span class="math notranslate nohighlight">\(n\)</span> nodes in general?</p>
@@ -554,13 +563,6 @@ By Garrett Kepler
   
   <div class="footer-item">
     
-
-  <p class="copyright">
-    
-      © Copyright 2023.
-      <br/>
-    
-  </p>
 
   </div>
   

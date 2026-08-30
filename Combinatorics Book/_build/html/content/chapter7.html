@@ -144,8 +144,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../_static/random_walk.gif" class="logo__image only-light" alt="Combinatorics Lecture Notes - Home"/>
+    <img src="../_static/random_walk.gif" class="logo__image only-dark pst-js-only" alt="Combinatorics Lecture Notes - Home"/>
   
-    <p class="title logo__title">Combinatorics Lecture Notes</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -380,10 +386,9 @@ from a group of 50 mathematicians and 60 statisticians?</p></li>
 <li><p><strong>Conclusion</strong>: Therefore, <span class="math notranslate nohighlight">\(\binom{10}{3}\binom{6}{2}=\binom{6}{2}\binom{10}{3}\)</span>.</p></li>
 </ul>
 </div>
-<p>The trick is that I created a scenario to help me prove the
-combinatorial identity <span class="math notranslate nohighlight">\(\binom{10}{3}\binom{6}{2}=\binom{6}{2}\binom{10}{3}\)</span>. This is the idea behind a <em>combinatorial model</em>. For clarity, recall the process of double counting:</p>
+<p>The trick is that I created a scenario to help me prove the combinatorial identity <span class="math notranslate nohighlight">\(\binom{10}{3}\binom{6}{2}=\binom{6}{2}\binom{10}{3}\)</span>. This is the idea behind a <em>combinatorial model</em>. For clarity, recall the process of double counting:</p>
 <div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Double Counting)</p>
+<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Double Counting)</p>
 <section class="definition-content" id="proof-content">
 <p><em>Double counting</em> is the proof technique commonly used in combinatorics to prove identities. Consider a question of the form “Show =”. Double counting would proceed as follows:</p>
 <ul class="simple">
@@ -446,7 +451,8 @@ We then used the tiling model to prove the following result:</p>
 <p>Proof. <strong>Problem</strong>: How many lattice paths are there on the <span class="math notranslate nohighlight">\(n\times n\)</span> grid?<br />
 <strong>LHS</strong>: We know from before, that there <span class="math notranslate nohighlight">\(\binom{2n}{n}\)</span> lattice paths.<br />
 <strong>RHS</strong>: Consider some column <span class="math notranslate nohighlight">\(k\)</span> on our grid:</p>
-<p>![image](math 325/book/content/photos/columnlattice.png){width=”.3\textwidth”}</p>
+<a class="reference internal image-reference" href="../_images/columnlattice.png"><img alt="../_images/columnlattice.png" class="align-center" src="../_images/columnlattice.png" style="height: 250px;" />
+</a>
 <p>At some point, every lattice path must meet each column <span class="math notranslate nohighlight">\(k=0,1,2,\dots, n\)</span> by definition of a lattice path. Using the same intuition when proving the general formula for lattice paths, consider the path we took to meet the column <span class="math notranslate nohighlight">\(k\)</span>. We must have gone right <span class="math notranslate nohighlight">\(k\)</span> times. There are <span class="math notranslate nohighlight">\(\binom{n}{k}\)</span> ways to select when to go right. After meeting this column, there are <span class="math notranslate nohighlight">\(n-k\)</span> more right moves to make. We can do this in <span class="math notranslate nohighlight">\(\binom{n}{n-k}\)</span> ways. So, there are <span class="math notranslate nohighlight">\(\binom{n}{k}\binom{n}{n-k}=\binom{n}{k}\binom{n}{k}=\binom{n}{k}^2\)</span> ways for each <span class="math notranslate nohighlight">\(k\)</span>. Since selecting when to move right determines when we move up, we have covered every lattice path. Therefore, there are <span class="math notranslate nohighlight">\(\sum_{k=0}^n\binom{n}{k}^2\)</span> total lattice paths.<br />
 <strong>Conclusion</strong>: Since both formulas count how many lattices paths there are, <span class="math notranslate nohighlight">\(\binom{2n}{n}=\sum_{k=0}^n\binom{n}{k}^2\)</span>.</p>
 </div>
@@ -605,13 +611,6 @@ By Garrett Kepler
   
   <div class="footer-item">
     
-
-  <p class="copyright">
-    
-      © Copyright 2023.
-      <br/>
-    
-  </p>
 
   </div>
   

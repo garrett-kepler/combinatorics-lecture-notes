@@ -1,8 +1,10 @@
 title: Combinatorics Lecture Notes
 author: Garrett Kepler
-
+logo: "content/photos/random_walk.gif"
 execute:
   execute_notebooks: force
 sphinx:
   extra_extensions:
     - sphinx_proof
+  config:
+      html_show_copyright: false
